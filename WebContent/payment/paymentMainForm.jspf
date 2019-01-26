@@ -1,0 +1,182 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+<title></title>
+</head>
+<body >
+<% 
+	if(session.getAttribute("ValidMem") == null){
+		
+	}else{
+%>
+	<!-- 	Credit Card Form	 -->
+	<form id="creditcard" name="doPayment" method="post" action="payment.do" >
+		<div id="payment" class="modal fade" aria-hidden="true" >
+			<div class="modal-dialog">
+				<div class="modal-content newmenu" >
+				
+					<div class="modal-header">
+						<button 
+							type="button" 
+							class="close" 
+							data-dismiss="modal" 
+							aria-hidden="true">&times;
+						</button>			
+						<span class="payTitle" id="myModalLabel">
+						Payment
+						</span>
+			  	    </div>
+					<div class="raw" style="height: 400px;">
+						<div id="cardpicker" class="col-sm-7">			
+							<div><br />
+								<a href="#">
+									<span class="tos col-xs-5" >
+										Terms of service
+									</span>
+								</a>
+								<span class="tos col-xs-7">
+									<input type="checkbox">
+									I agree to the Term of service
+								</span>
+							</div><br /><hr/>
+							<div class="" style="padding-bottom:0.3%;" >
+								<c:forEach var="item" items="${fn:split('PAYCO|L.PAY|PAYPAL', '|') }" begin="0" end="5" varStatus="st">
+									<button class="a_card btn btn-light" id="a_card${st.index}"
+											type="button" 
+											style="font-family: ‘Noto Sans KR’ ;
+											position:relative; 
+											padding-left: 1%; padding-right: 1%;
+											border: 1px solid  #c0c0c0; width: 30%;">
+										${item }
+									</button>
+									<input class="a_card${st.index}" type="hidden" value="${item }">
+								</c:forEach>
+							</div>
+							<div class="" style="margin-top: 3%">						
+								<c:forEach var="item" 
+											items="${fn:split('신한카드|KB국민|NH농협|삼성카드|현대은행|씨티은행|BananaBank|WealthBank', '|') }" 
+											begin="0"  varStatus="st" end="8">
+									<button class="b_card btn btn-light" id="b_card${st.index}"
+											type="button"
+											style="font-family: ‘Noto Sans KR’; 
+													position:relative; 
+													margin-bottom:3%; padding-left: 2%; padding-right: 2%;
+													border: 1px solid  #c0c0c0; width: 30%;">
+										${item }
+									</button>
+									<input class="b_card${st.index}" type="hidden" value="${item }">
+								</c:forEach>
+									
+								
+								
+							</div>
+						</div>
+						<!-- 	input	 -->
+						<div id='inputpay' class="col-sm-7" style="top:3%;">			
+							<div class="" style="background-color:#c0c0c0; border-radius: 5px; font-size: 90%; padding:1% 2% 6% 1%; width: 60%; text-align: right;">
+								<label class="cardName" style="font-family: ‘Noto Sans KR’;color:white" ></label><br/><br/><br/>
+								<input type="hidden" id="cardName" name="creditCardFirm" style="color: black;" value="">
+								<div id="recdn" style="font-family: ‘Noto Sans KR’;color:white;font-size: 110%;text-align: center;">0000 0000 0000 0000</div>
+								<div style="font-family: ‘Noto Sans KR’;color:white;font-size: 20%;text-align: center;">MONTH / YEAR</div>
+								<div id="validthru" style="font-family: ‘Noto Sans KR’;color:white;font-size: 80%;text-align: center;">00 / '00</div>
+							</div>
+							
+								<div class="paymidTitle payinputLabel">
+									<div class=""> Card number </div>
+									<input type="text" id="cdn" name="cardNumber" class="paytextbox"/>																													
+								</div>							
+				
+								<div class="paymidTitle payinputLabel">
+									<div class=""> Expiration date</div>
+									<input type="text" id="expd" name="inval" class="paytextbox"/>
+								</div>
+								
+								<div class="paymidTitle payinputLabel">
+									<div class="">CVC</div>
+									<input type="password" id="cvc" name="cvc" class="paytextbox" />
+								</div>
+								<div  style="margin-top:4%;">
+									<select class="vt" id="installment" name="installment" val>
+										<option class="vt" value="Installment">Installment</option>
+										<option class="vt" value="allatonce">All at once</option>
+									  	<option class="vt" value="3 months">3 months</option>
+										<option class="vt" value="6 months">6 months</option>
+									</select>
+								</div>
+						</div>
+						
+						<!-- 	Sidebar		 -->
+						<div class="sidebar col-sm-5" style="width:41.67%;height: 400px;padding-left: 0px;" >
+							<div>
+								<p>
+									<label class="col-xs-6" style="margin-bottom:7px;">Book at</label>
+									<label class="re_time col-xs-3" style="text-align: right;margin-bottom:7px;">time</label>
+									<label class="re_day col-xs-3" style="text-align: right;margin-bottom:7px;">day</label>
+								</p>
+							</div>	
+							<div>
+								<p>
+									<label class="col-xs-8" style="margin-bottom:7px;">Table no.</label>
+									<label class="ptn col-xs-4" style="text-align: right;margin-bottom:7px;">0</label>
+								</p>
+							</div>	
+							<div>
+								<p><label class="col-xs-8" style="margin-bottom:7px;">Product</label>
+								<label class="col-xs-4" style="text-align: right;margin-bottom:7px;">price</label></p>
+
+								<c:forEach var="j" begin="0" varStatus="st" end="5">
+									<p>
+										<label class="product${st.index} col-xs-8"
+										 		style="color: white;font-size: 70%" >
+										</label>
+										<label class="price${st.index} col-xs-4"
+												style="color: white;font-size: 70%;text-align: right;" >
+										</label>
+									</p>
+								</c:forEach>
+							</div>	
+							<div>
+								<label class="payTotal payMenu col-xs-7" style="margin-top:7px;">
+									Total price
+								</label>
+								<label class="paysum payMenu col-xs-5" style="margin-top:7px;">
+								</label><br/>
+								<input type="hidden" name="withdraw" class="paysum" 
+									style="margin-top:7px; color: black;" value=""/>
+							</div>
+
+							
+							<!-- 	next button 	-->
+							<div>
+								<input id="payNext" type="button" name="paybtn" class="btn btn-light col-xs-6" 
+									style= "margin-top:7px;left:3.5%;
+											font-size:140%; border-radius: 5px; 
+											width: 100%" value="Next" onclick="">
+											
+							<!-- 	payment button	 -->
+								<input id="pay" type="button" name="paybtn" class="btn btn-light col-xs-6" 
+									style= "margin-top:7px;left:3.5%;
+											font-size:140%; border-radius: 5px; 
+											width: 100%" value="payment" data-dismiss="modal" 
+											onclick="paymentPopupOpen()">
+							</div>						
+							<div class="col-xs-12" style="height: 10px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+<%
+	}
+%>
+</body>
+</html>

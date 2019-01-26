@@ -1,0 +1,32 @@
+
+.time_nomal {
+	width:20%; height:10%; 
+	padding:1%;
+	border:0; 
+	outline:0;
+	position:relative;
+	font-size: 56%;
+	color:white; 
+	background-color: #d3d9dc; 
+	border-radius: 2.5px; 
+	text-decoration: none;
+	font-family: 'Bungee Hairline', cursive;
+	font-weight:bolder;	
+	
+}
+
+.time_admin{
+	width:20%; height:10%; 
+	padding:1%;
+	border:0; 
+	outline:0;
+	position:relative;
+	font-size: 56%;
+	color:white; 
+	background-color: #d1d0dc; 
+	border-radius: 2.5px; 
+	text-decoration: none;
+	font-family: 'Bungee Hairline', cursive;
+	font-weight:bolder; 
+
+}

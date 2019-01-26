@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+.payTitle, .tos, .sidebar, .btn, .vt, .payTitlebox,
+ .paymidTitle, .paymidTitle, .payhistory, .payContent, .payvalue, .confirmButton, .payLabel{
+	font-family: ‘Noto Sans KR’, 'Bungee Hairline', cursive; ;
+	
+}
+
+.payTitle {
+	font-size: 150%;
+	font-weight:bold;
+}
+.tos {
+	font-size:100%;
+	font-weight:bold;
+}
+.sidebar {
+	background-color: #3900ff;
+	color: white;
+	font-weight:bold;
+}
+.btn{
+	border:1px solid #c0c0c0;
+	background-color: white;
+	color: #a4a4a4;
+	padding-left: 2%;
+	padding-right: 2%;
+	font-weight: bold;
+}
+.vt {
+	font-size:100%;
+	font-weight: bolder;
+	
+}
+.payTitlebox{
+	border:2px solid #dbdbdb;
+	border-radius: 5px;
+	margin: 2%;
+	padding:3%;
+	
+}
+.paymidTitle {
+	font-weight: bolder;
+	font-size: 80%;
+}
+.payhistory {
+	border-radius: 5px;
+	margin: 2% 2% 0% 2%;
+	padding:3% 0% 0% 3%;
+	font-size:100%;
+	font-weight: bolder;
+}
+.payContent{
+	margin: 0% 2% 0% 2%; 
+	border-bottom: 1px solid #c0c0c0;
+}
+.payLabel {
+	width:25%;
+	margin: 1% 2% 0% 0%;
+	padding:1% 3% 1% 0%;
+	font-size:100%;
+	font-weight: bolder;
+	background-color: #ececec;
+	display: inline-block;
+	text-align: center;
+}
+.payvalue {
+	width:25%;
+	margin: 0% 2% 0% 0%;
+	padding:0% 3% 1% 0%;
+	font-size:100%;
+	font-weight: bolder;
+	display: inline-block;
+}
+.confirmButton {
+	margin: 13% 0% 0% 0%;
+	padding:12% 8% 12% 8%;
+	font-weight: bolder;
+	
+}
+.paytextbox {
+	border-radius: 5px;
+	width:85%;
+	
+}
+.payinputLabel {
+	font-weight: bolder;
+	font-size:100%;
+	padding:4% 0% 2% 0%;
+}

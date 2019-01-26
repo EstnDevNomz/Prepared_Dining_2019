@@ -1,0 +1,186 @@
+/*���� Ÿ����ȿ��*/
+@-webkit-keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 40em
+    }
+}
+@-webkit-keyframes blink-caret {
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: black
+    }
+}
+body {
+    font-family: 'Delius Unicase', cursive
+}
+.typing {
+    font-size: 120%;
+    color:gray;
+    width: 39em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .0.7em solid black;
+    -webkit-animation: typing 1.5s steps(31, end), blink-caret 5s step-end infinite;
+}
+.typingFooter {
+  font-size: 1.5vw;
+  color:gray;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .10em solid black;
+  -webkit-animation: typing 2s steps(36, end), blink-caret 1s step-end ;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation: typing 2s steps(36, end), blink-caret 1s step-end ;
+  -moz-animation-delay: 1s;
+}
+
+
+#insite {
+	width:90%;
+	height:10%;
+	right:45%;
+	line-height: 1.5;
+	padding: .3em .8em;
+	border: none;
+	background: #ADD7F4 linear-gradient(hsla(0,0%,100%,.2), 
+				transparent);
+	border-radius: .4em;
+	box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+	color:white;
+	text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+	line-height: 1;	
+	transition-duration: 0.3s;
+	transition-timing-function: ease;
+	font-size: 50%;
+}
+#insite:hover {
+	background: #EA575B;
+}
+
+#insite:hover{
+	color:transparent;
+	text-shadow: 0 0 .01em white, 0 0 .3em white;
+}
+
+.blur{
+	background:whtie;
+	color: #808080;
+	transition: 1s;
+	text-decoration: none;
+}
+.blur:hover{
+	color:transparent;
+	text-shadow: 0 0 .01em #525ead, 0 0 .3em white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Give+You+Glory|Kelly+Slab|Poiret+One');
+
+.description, .apptitle, .appsub, .signin, .join, .out, .modifyinfo {
+	font-family: 'Bungee Hairline', cursive;
+	text-decoration: none;
+}
+.login {
+	text-align: center; 
+	font-size: 1vw; 
+	position:absolute; top:11vw; left:35vw;
+}
+.signin {
+	font-size: 200%;
+	font-weight: bold;
+}
+.out {
+	font-size: 200%;
+	font-weight: bold;
+	text-decoration: none;
+}
+.join {
+	font-size: 200%;
+
+}
+.modifyinfo {
+	font-size: 270%;
+	text-decoration: none;
+	
+}
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+.description {
+	font-family: ‘Noto Sans KR’ ;
+	font-size:190%;
+	font-weight: bold;
+	padding-top: 1%;
+}
+.apptitle {
+	font-size:130%; 
+	font-weight: bolder;
+}
+.appsub {
+	font-size: 110%;
+	font-weight: bold;
+}
+
+.date_title {
+	height: 80px; 
+	text-align: center; 
+	line-height: 100px;
+	font-family: 'Bungee Hairline', cursive; 
+	font-size: 200%; 
+	font-weight:bolder;
+	
+}
+.dow {
+	height: 80px; 
+	text-align: center; 
+	line-height: 80px;
+	font-family: 'Bungee Hairline', cursive; 
+	font-size: 200%; 
+	font-weight:bolder; 
+	
+}
+.date_f {
+	font-size: 0.4vw;
+	line-height: 30px;
+	font-family: 'Bungee Hairline', cursive;
+	font-weight: bolder;
+	color: #aaaaaa;
+	padding: 1%;
+}
+.week_f {
+	text-align:center;
+	font-size: 0.4vw;
+	color: #ff8040;
+	font-family: 'Bungee Hairline', cursive;
+	font-weight: bolder;
+	
+}
+.write_font{
+	font-family: 'Bungee Hairline', cursive;
+	font-weight: bolder;	
+}
+.writeImg {
+	font-family: ‘Noto Sans KR’ ;
+	font-weight: lighter;	
+}
+.loginstyle {
+	font-family: 'Bungee Hairline', cursive;
+	font-weight: bolder;	
+}
+#locationinformation{
+	font-size:0.8vw; 
+	position:absolute; 
+	top:30vw;left: 78vw;
+	font-family: 'Bungee Hairline', cursive; 
+	font-weight:bolder;
+}
+.pList {
+	position:absolute; 
+	width:40vw;height:10vw; top:33vw; left:22%;
+	background-color: #feeba8; 
+	font-size: 50%;
+	overflow:auto;
+}
