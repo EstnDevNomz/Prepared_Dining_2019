@@ -30,6 +30,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t4, .t5, .t6, .t7, .t8, .t9').hide();
 		$('.table_2, .table_3, .table_4, .table_5, .table_6, .table_7, .table_8, .table_9').hide();
+		$('.table_1').css('display', 'block');
 		$('.table_1').show();
 		
 	});
@@ -42,6 +43,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t1, .t3, .t4, .t5, .t6, .t7, .t8, .t9').hide();
 		$('.table_2, .table_1, .table_4, .table_5, .table_6, .table_7, .table_8, .table_9').hide();
+		$('.table_2').css('display', 'block');
 		$('.table_2').show();
 
 	});
@@ -54,6 +56,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t1, .t4, .t5, .t6, .t7, .t8, .t9').hide();
 		$('.table_2, .table_1, .table_4, .table_5, .table_6, .table_7, .table_8, .table_9').hide();
+		$('.table_3').css('display', 'block');
 		$('.table_3').show();
 
 	});
@@ -66,6 +69,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t1, .t5, .t6, .t7, .t8, .t9').hide();
 		$('.table_2, .table_3, .table_1, .table_5, .table_6, .table_7, .table_8, .table_9').hide();
+		$('.table_4').css('display', 'block');
 		$('.table_4').show();
 
 	});
@@ -90,6 +94,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t4, .t5, .t1, .t7, .t8, .t9').hide();
 		$('.table_2, .table_3, .table_4, .table_5, .table_1, .table_7, .table_8, .table_9').hide();
+		$('.table_6').css('display', 'block');
 		$('.table_6').show();
 
 	});
@@ -102,6 +107,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t4, .t5, .t6, .t1, .t8, .t9').hide();
 		$('.table_2, .table_3, .table_4, .table_5, .table_6, .table_1, .table_8, .table_9').hide();
+		$('.table_7').css('display', 'block');
 		$('.table_7').show();
 
 	});
@@ -114,6 +120,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t4, .t5, .t6, .t7, .t1, .t9').hide();
 		$('.table_2, .table_3, .table_4, .table_5, .table_6, .table_7, .table_1, .table_9').hide();
+		$('.table_8').css('display', 'block');
 		$('.table_8').show();
 
 	});
@@ -126,6 +133,7 @@ function getCookie(c_name)
 		alert('Selected No.'+a+' table')
 		$('.t2, .t3, .t4, .t5, .t6, .t7, .t8, .t1').hide();
 		$('.table_2, .table_3, .table_4, .table_5, .table_6, .table_7, .table_8, .table_1').hide();
+		$('.table_9').css('display', 'block');
 		$('.table_9').show();
 
 	});
@@ -141,8 +149,8 @@ function getCookie(c_name)
 	//onclick TimePicker
 	function time(t) {
 		var a = t
-		$('.reserve_label').val('book at');
-		$('.re_time').val(a);
+		$('.reserve_label').text('book at');
+		$('.re_time').text(a);
 		$('.reserve_time').val(a);
 		$('.reserve_time').text(a);
 		$('.time').hide();
@@ -151,38 +159,38 @@ function getCookie(c_name)
 	/*	input day	*/
 	$('#today').click(function(){
 		var a = 'today';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 		$('.day').val(a);
 	});
 	$('#manana').click(function(){
 		var a = 'manana';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#third').click(function(){
 		var a = 'third';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#fourth').click(function(){
 		var a = 'fourth';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#fifth').click(function(){
 		var a = 'fifth';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#sixth').click(function(){
 		var a = 'sixth';
-		$('.re_day').val(a);
+		$('.re_day').text(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});

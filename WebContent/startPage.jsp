@@ -61,7 +61,7 @@ background-repeat: no-repeat;
 
 </head>
 <body class="bg">
-<form action="main.do">
+<form action="index.do">
 <span><input id="insite" class="g_font site" type="submit" value="enter the Site"/></span>
 </form>
 <form action="">

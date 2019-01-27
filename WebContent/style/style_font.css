@@ -81,7 +81,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css?family=Give+You+Glory|Kelly+Slab|Poiret+One');
 
-.description, .apptitle, .appsub, .signin, .join, .out, .modifyinfo {
+.description, .apptitle, .appsub, .signin, .join, .out, .modifyinfo, .pList {
 	font-family: 'Bungee Hairline', cursive;
 	text-decoration: none;
 }
@@ -148,7 +148,16 @@ body {
 	font-family: 'Bungee Hairline', cursive;
 	font-weight: bolder;
 	color: #aaaaaa;
-	padding: 1%;
+	padding: 0.1vw;
+}
+.admin_date_f {
+	background-color:#ffffff;
+	font-size: 0.4vw;
+	line-height: 30px;
+	font-family: 'Bungee Hairline', cursive;
+	font-weight: bolder;
+	color: #aaaaaa;
+	padding: 0.1vw;
 }
 .week_f {
 	text-align:center;
@@ -176,11 +185,47 @@ body {
 	top:30vw;left: 78vw;
 	font-family: 'Bungee Hairline', cursive; 
 	font-weight:bolder;
+	color: #B6AEA5;
+	text-decoration: none;
+}
+.cpList {
+	position:absolute; 
+	height:10vw; top:33vw;
+	background-color: #feeba8;
+	font-family: 'Bungee Hairline', cursive;
+	
+	overflow:auto;
 }
 .pList {
 	position:absolute; 
-	width:40vw;height:10vw; top:33vw; left:22%;
-	background-color: #feeba8; 
-	font-size: 50%;
+	width:40vw;height:10vw; top:33vw;
+	background-color: #feeba8;
+	font-family: 'Bungee Hairline', cursive; 
 	overflow:auto;
 }
+.listSub {
+	text-align: center;
+	padding: 1% 0% 0.3% 0%;
+	border-bottom: 5px solid white;
+	font-size: 0.85vw;
+}
+.listContent {
+	text-align: center;
+	padding: 1% 0% 1% 0%;
+	border-bottom: 5px solid white;
+	font-size: 0.8vw;
+	color: black;
+	font-weight: bolder;
+}
+.booklist {
+	text-align: center; 
+	color:black;
+	font-weight:bolder;
+	padding: 1% 0% 1% 0%;
+	border-bottom: 5px solid white;
+	overflow: auto;
+}
+.time {
+	font-size: 0.3vw;
+}
+

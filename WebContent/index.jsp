@@ -62,7 +62,7 @@
 			$('.table_1').hide();$('.table_2').hide();$('.table_3').hide();
 			$('.table_4').hide();$('.table_5').hide();$('.table_6').hide();
 			$('.table_7').hide();$('.table_8').hide();$('.table_9').hide();
-			$('.table_10').hide();" style="background-color: #F6F5F4; height: 100%;">
+			$('.table_10').hide();" style="background-color: #F6F5F4; height: 100%; overflow:hidden;">
 			
 <%
 	//	고객 접속확인
@@ -95,27 +95,18 @@
 								</span>
 							</div>	
 						</section>	
-						<section>
-							<video id="video" poster="img/post_001.png" 
-									class="video-js"
-									width="350" height="260" 
-									controls="controls" 
-									style="display:block; position:absolute; border-radius: 20px;display: block;left: 78vw;top:-4vw;" 
-									autoplay="autoplay">
-								<source class="video" src="${filename }" type="video/mp4" />
-							</video>
-							<br/>
+						<section>	
 								
 <%
 	if(email == null ){
 		
 	} else if(!email.equals(admin)){
 %>
-							<div class="pList zoomTarget scroll scroll4" id="pList" data-duration="800">
+							<div class="cpList scroll scroll4" id="pList" style="width: 98.5vw;">
 										
 										<!-- middle title -->
 									<div class="col-xs-12 label label-default"
-										style="font-family:monospace; text-align: center;
+										style="text-align: center;
 											padding: 1% 0% 0.3% 0%;border-bottom: 5px solid white">
 										<label class="col-xs-2">Index</label>
 										<label class="col-xs-2">Date</label>
@@ -127,8 +118,7 @@
 									
 										<!-- book list -->
 									<c:forEach var="i" items="${cblist}" begin="0"	end="23" varStatus="st">
-										<div class="col-xs-12" style="font-family:monospace; text-align: center;
-												padding: 1% 0% 1% 0%;border-bottom: 5px solid white;overflow: auto;">
+										<div class="booklist col-xs-12" style="font-size:0.7vw;">
 											<input type="hidden" class="bseq${st.index}" value="${i.b_seq }">
 											<div class="col-xs-2">${i.b_seq }</div>
 											<div class="col-xs-2">${i.reserved_wmy }</div>
@@ -148,20 +138,36 @@
 								<!-- get bseq index when click cancel button -->
 								<input type="hidden" class="bseq" value=""/>
 							</div>	
-												
+
+<%		
+	}else{
+		
+	}
+%>						</section>
+						<section>
+							<video id="video" poster="img/post_001.png" 
+									class="video-js"
+									width="350" height="260" 
+									controls="controls" 
+									style="display:block; position:absolute; border-radius: 20px;display: block;left: 78vw;top:-4vw;" 
+									autoplay="autoplay">
+								<source class="video" src="${filename }" type="video/mp4" />
+							</video>
+							<br/>
+																			
 						  <!--				location information			 -->
 							
-						  <div id="locationinformation" class="typing"> 
+						  <div id="locationinformation" class="location" style="width:20vw; text-align: right;"> 
 							<!-- get Distance method -->
 							<script type="text/javascript" src="script/calcDistance.js"></script>
-						      My location:<br/> 
-						      <a id="home" data-toggle="modal" data-target="#myModal">
+						     <label style="width:20vw;">My location:</label> <br/> 
+						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#B6AEA5; text-align: left;">
 						      	<span id="startLat"></span>°, <span id="startLon"></span>°
 						      </a>
 						 	<br/><br/>
 		
 						      Store location:<br/> 
-						      <a id="cl" href="javascript:mapPopupOpen()">
+						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #B6AEA5">
 						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
 						      </a>
 						    <br/><br/>
@@ -172,11 +178,7 @@
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
 						  </div> 
-<%		
-	}else{
-		
-	}
-%>						</section>
+						</section>
 					</div>
 				</div>
 			<!-- Users account -->
@@ -248,39 +250,20 @@
 		<div id="reserve" class="zoomTarget level0" data-duration="800">
 			<span class="apptitle blur" style="font-size: 1vw">Book Up</span><br /> <br /> 
 			<div style="width: 100%; height: 100%;">
-				<img class="tableImg zoomTarget zoomButton "
-					data-type="next" data-root=".demo" data-duration="800" 
-					src="img/court.png" alt=""/>
+				<img class="tableImg" src="img/court.png" alt=""/>
 				<br><br><br><br>
 				
-				<!-- 	no.1 Table book up 	-->
+				<!-- 	Table book up 	-->
 						
-						<input type="button" name="t_index" class="table tb1 t1 zoomButton" 
-								data-type="next" data-root=".demo" value="1" onclick="">					
-		
-						<input type="button" name="t_index" class="table tb1 t2 zoomButton" 
-								data-type="next" data-root=".demo" value="2">
-	
-						<input type="button" name="t_index" class="table tb1 t3 zoomButton" 
-								data-type="next" data-root=".demo" value="3">
-	
-						<input type="button" name="t_index" class="table tb1 t4 zoomButton" 
-								data-type="next" data-root=".demo" value="4">
-	
-						<input type="button" name="t_index" class="table tb2 t5 zoomButton" 
-								data-type="next" data-root=".demo" value="5">
-	
-						<input type="button" name="t_index" class="table tb2 t6 zoomButton" 
-								data-type="next" data-root=".demo" value="6">
-	
-						<input type="button" name="t_index" class="table tb2 t7 zoomButton" 
-								data-type="next" data-root=".demo" value="7">
-	
-						<input type="button" name="t_index" class="table tb3 t8 zoomButton" 
-								data-type="next" data-root=".demo" value="8">
-	
-						<input type="button" name="t_index" class="table tb3 t9 zoomButton" 
-								data-type="next" data-root=".demo" value="9">
+						<input type="button" name="t_index" class="table tb1 t1 zoomButton"value="1" data-type="next" data-root=".demo">					
+						<input type="button" name="t_index" class="table tb1 t2 zoomButton"value="2" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb1 t3 zoomButton"value="3" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb1 t4 zoomButton"value="4" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb2 t5 zoomButton"value="5" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb2 t6 zoomButton"value="6" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb2 t7 zoomButton"value="7" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb3 t8 zoomButton"value="8" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" class="table tb3 t9 zoomButton"value="9" data-type="next" data-root=".demo">
 																								
 			</div>
 		</div>
@@ -290,7 +273,7 @@
 	<%@ include file="reservation/bookup.jsp" %>		
 	
 		<div id="book" class="raw zoomTarget level0" 
-			 style="font-family: 'Bungee Hairline', cursive; font-size: 0.8vw; font-weight:bolder;">
+			 style="font-family: 'Bungee Hairline', cursive; font-size: 0.5vw; font-weight:bolder;">
 			<span style="color: black;"><%=dow %></span>&nbsp;&nbsp;
 			<span style="color:#cfcfcf"><%= yyyy %></span>
 				<br/><br/>
@@ -340,9 +323,10 @@
 			
 		} else {
 		%>
-		<div class="table_1">				
+		<div id="allSchdule" style="">
+		<div class="table_1" style="display:none;">				
 			<!-- Calendar for Table No.1 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 13%;">
 	 			<c:forEach var="j" begin="0" items="${t1_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_admin time-sh"
@@ -399,7 +383,7 @@
 		</div>
 		
 		<!-- Calendar for Table No.2 -->
-		<div class="table_2">
+		<div class="table_2" style="display:none;">
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
@@ -456,7 +440,7 @@
 			</div>		  
 		</div>
 		
-		<div class="table_3">
+		<div class="table_3" style="display:none;">
 			<!-- Calendar for Table No.3 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_today_calendar }" end="15" varStatus="st">
@@ -514,7 +498,7 @@
 			</div>		  
 		</div>	
 		
-		<div class="table_4">
+		<div class="table_4" style="display:none;">
 			<!-- Calendar for Table No.4 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_today_calendar }" end="15" varStatus="st">
@@ -572,7 +556,7 @@
 			</div>		  
 		</div>	
 		
-		<div class="table_5">
+		<div class="table_5" style="display:none;">
 			<!-- Calendar for Table No.5 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_today_calendar }" end="15" varStatus="st">
@@ -630,7 +614,7 @@
 			</div>		  
 		</div>	
 		
-		<div class="table_6">
+		<div class="table_6" style="display:none;">
 			<!-- Calendar for Table No.6 -->
 			<div align="left"  class="tp timepicker0" style="padding-left:13%">
 	 			<c:forEach var="j" begin="0" items="${t6_today_calendar }" end="15" varStatus="st">
@@ -688,7 +672,7 @@
 			</div>
 		</div>
 			
-		<div class="table_7">
+		<div class="table_7" style="display:none;">
 			<!-- Calendar for Table No.7 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_today_calendar }" end="15" varStatus="st">
@@ -746,7 +730,7 @@
 			</div>	
 		</div>
 
-		<div class="table_8">
+		<div class="table_8" style="display:none;">
 						<!-- Calendar for Table No.7 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_today_calendar }" end="15" varStatus="st">
@@ -804,7 +788,7 @@
 			</div>
 		</div>	
 		
-		<div class="table_9">
+		<div class="table_9" style="display:none;">
 			<!-- Calendar for Table No.9 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_today_calendar }" end="15" varStatus="st">
@@ -861,14 +845,25 @@
 				</c:forEach>			
 			</div>
 		</div>
-		
+		</div>
 			<br /><br />
-			<div style="position:relative; align-self: center; text-align: center;">
-				<span>			
-					<input type="text" class="reserve_label" style="background-color:#F6F5F4;border:none; font-size: 70%;" size="5" readonly="readonly"/>&nbsp;&nbsp;
-					<input type="text" class="re_time" style="background-color:#F6F5F4;border:none;font-size: 70%;" size="5" readonly="readonly"/>&nbsp;&nbsp;
-					<input type="text" class="re_day" style="background-color:#F6F5F4;border:none;font-size: 70%;" size="5" readonly="readonly"/>
-				</span>
+			<div class="row" style="position:relative; align-self: center; text-align: center;">
+				<div class="col-xs-12">			
+					<label class="reserve_label col-xs-4" style="background-color:#F6F5F4;border:none;text-align:right; font-size: 0.2vw;"></label>
+					<label class="re_time col-xs-4" style="background-color:#F6F5F4;border:none;font-size: 0.2vw;"></label>
+					<label class="re_day col-xs-4" style="background-color:#F6F5F4;border:none;text-align:left; font-size: 0.2vw;"></label>
+				</div>
+				<div class="col-xs-12">
+					<div class="col-xs-2"></div>
+					<button class="reCon col-xs-8 btn btn-default zoomButton" 
+							data-type="next" data-root=".demo" 
+							style="display: none;align-self:center; border:none;font-size: 0.2vw;" >
+							
+							Reservation confirm
+							
+					</button>
+					<div class="col-xs-2"></div>		
+				</div>
 			</div>	
 		
 		<%
@@ -921,7 +916,7 @@
 			<!--  Reservation Information -->
 		
 			<div style="position:absolute; top:20vw; left:78vw; 
-				 font-family: 'Bungee Hairline', cursive;font-size: 0.5vw; font-weight:bolder;">
+				 font-family: 'Bungee Hairline', cursive;font-size: 0.3vw; font-weight:bolder;">
 				 
 				<label style="border:none;">${email}</label>
 				<input type="hidden" id="email" name="email" value="${email}"/>

@@ -64,7 +64,7 @@
 <body onload="init();$('#inputpay').hide();$('#pay').hide();
 			$('.table_1').hide();$('.table_2').hide();$('.table_3').hide();
 			$('.table_4').hide();$('.table_5').hide();$('.table_6').hide();
-			$('.table_7').hide();$('.table_8').hide();$('.table_9').hide();" style="height: 100%;"">
+			$('.table_7').hide();$('.table_8').hide();$('.table_9').hide();" style="height: 100%;overflow: hidden;">
 			
 <%	//	고객 접속확인
 	if(session.getAttribute("ValidMem") == null){
@@ -143,13 +143,11 @@
 							%>	
 										<!--  Administrator's Purchase Full List -->
 							
-										<div class="pList zoomTarget scroll scroll4" id="pList" data-duration="800" 
-											style="position:absolute; width:55vw; 
-											background-color: #feeba8; font-size: 0.5vw;overflow:auto;">
+										<div class="pList scroll scroll4" id="pList"
+											style="position:absolute; width:98vw; 
+											background-color: #feeba8;overflow:auto;">
 											
-											<div class="col-xs-12 label label-info"
-												style="font-family:monospace; text-align: center;
-													padding: 1% 0% 0.3% 0%;border-bottom: 5px solid white">
+											<div class="listSub col-xs-12 label label-info">
 												<label class="col-xs-1">Index</label>
 												<label class="col-xs-1">Date</label>
 												<label class="col-xs-1">time</label>
@@ -161,8 +159,7 @@
 											</div>
 											
 											<c:forEach var="i" items="${plist}" begin="0"	end="23" varStatus="st">
-												<div class="col-xs-12" style="font-family:monospace; text-align: center;
-														padding: 1% 0% 1% 0%;border-bottom: 5px solid white;">
+												<div class="listContent col-xs-12" style="color: black;">
 													<input type="hidden" class="bseq${st.index}" value="${i.b_seq }">
 													<div class="col-xs-1">${i.b_seq }</div>
 													<div class="col-xs-1">${i.reserved_wmy }</div>
@@ -221,27 +218,27 @@
 
 						<!--				location information			 -->
 							
-						  <div id="locationinformation" class="typing"> 
+						  	<div id="locationinformation" class="location" style="width:20vw; text-align: right;"> 
 							<!-- get Distance method -->
 							<script type="text/javascript" src="script/calcDistance.js"></script>
-						    My location:<br/> 
-						      <a id="home" data-toggle="modal" data-target="#myModal">
+						     <label style="width:20vw;">My location:</label> <br/> 
+						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#B6AEA5; text-align: left;">
 						      	<span id="startLat"></span>°, <span id="startLon"></span>°
 						      </a>
 						 	<br/><br/>
 		
-						    Store location:<br/> 
-						      <a id="cl" href="javascript:mapPopupOpen()">
+						      Store location:<br/> 
+						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #B6AEA5">
 						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
 						      </a>
 						    <br/><br/>
 						   	
-						    Distance:<br/> 
-						    <label class="distance" style="background-color:#ffffff;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
-						    <input type="hidden" id="distance" name="distance"
+						     Distance:<br/> 
+						     <label class="distance" style="background-color:#ffffff;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
+						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
-						  </div> 
+						  </div>  
 								
 						</section>
 					</div>
@@ -360,22 +357,22 @@
 				<!-- 	Day of weeks	 -->
 			<div class="date">
 			    <div class="col-xs-2 week_f"><%=EE[0] %>
-		    		<br/><span id="today" class="today date_f date_sh" ><%=af[0] %></span>
+		    		<br/><span id="today" class="today admin_date_f date_sh" ><%=af[0] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[1] %>
-		    		<br/><span id="manana" class="manana date_f date_sh" ><%=af[1] %></span>
+		    		<br/><span id="manana" class="manana admin_date_f date_sh" ><%=af[1] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[2] %>
-		    		<br/><span id="third" class="third date_f date_sh" ><%=af[2] %></span>
+		    		<br/><span id="third" class="third admin_date_f date_sh" ><%=af[2] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[3] %>
-		    		<br/><span id="fourth" class="fourth date_f date_sh" ><%=af[3] %></span>
+		    		<br/><span id="fourth" class="fourth admin_date_f date_sh" ><%=af[3] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[4] %>
-		    		<br/><span id="fifth" class="fifth date_f date_sh" ><%=af[4] %></span>
+		    		<br/><span id="fifth" class="fifth admin_date_f date_sh" ><%=af[4] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[5] %>
-		    		<br/><span id="sixth" class="sixth date_f date_sh" ><%=af[5] %></span>
+		    		<br/><span id="sixth" class="sixth admin_date_f date_sh" ><%=af[5] %></span>
 		    	</div>
 		    </div>	
 		    	<br/>		    	
@@ -386,7 +383,7 @@
 		} else if(email.equals(admin)){
 	%>
 			<!-- 	TimePicker View for Administor		-->
-		<div class="table_1">	
+		<div class="table_1" style="display:none;">	
 		
 <%-- 			<c:forEach var="item" begin="0" items="${fn:split('today|manana|third|fourth|fifth|sixth', '|') }" end="8" varStatus="status">
 				<div align="left"  class="tp timepicker${status.index }"  style="padding-left: 13%">
@@ -473,7 +470,7 @@
 		</div>
 		
 		<!-- Calendar for Table No.2 -->
-		<div class="table_2">
+		<div class="table_2" style="display:none;">
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
@@ -540,7 +537,7 @@
 			</div>
 		</div>
 		
-		<div class="table_3">
+		<div class="table_3" style="display:none;">
 			<!-- Calendar for Table No.3 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_today_calendar }" end="15" varStatus="st">
@@ -608,7 +605,7 @@
 			</div>
 		</div>	
 		
-		<div class="table_4">
+		<div class="table_4" style="display:none;">
 			<!-- Calendar for Table No.4 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_today_calendar }" end="15" varStatus="st">
@@ -676,7 +673,7 @@
 			</div>
 		</div>	
 		
-		<div class="table_5">
+		<div class="table_5" style="display:none;">
 			<!-- Calendar for Table No.5 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_today_calendar }" end="15" varStatus="st">
@@ -744,7 +741,7 @@
 			</div>
 		</div>	
 		
-		<div class="table_6">
+		<div class="table_6" style="display:none;">
 			<!-- Calendar for Table No.6 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t6_today_calendar }" end="15" varStatus="st">
@@ -812,7 +809,7 @@
 			</div>
 		</div>
 			
-		<div class="table_7">
+		<div class="table_7" style="display:none;">
 			<!-- Calendar for Table No.7 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_today_calendar }" end="15" varStatus="st">
@@ -880,7 +877,7 @@
 			</div>
 		</div>	
 
-		<div class="table_8">
+		<div class="table_8" style="display:none;">
 						<!-- Calendar for Table No.7 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_today_calendar }" end="15" varStatus="st">
@@ -948,7 +945,7 @@
 			</div>
 		</div>	
 		
-		<div class="table_9">
+		<div class="table_9" style="display:none;">
 			<!-- Calendar for Table No.9 -->
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_today_calendar }" end="15" varStatus="st">

@@ -1,7 +1,7 @@
 .level0, .level1, .level2 {
 	margin-left:1%;
 	margin-top:1%;
-	border:0.5vw solid gray;
+	border:0.5vw solid #9f9f9f;
 	
 }
 
@@ -14,8 +14,6 @@
 	top: 18vw;
 }
 
-
-/*location  */
 #menu {
 	left:21%;
 }
@@ -84,11 +82,12 @@
 
 
 .tb1, .tb2, .tb3 {
-	font-size:0.5vw;
-	opacity: 0.3;
-	color: black;
+	font-size:0.4vw;
+	opacity: 0.4;
+	color: #2e47d8;
 	font-family: 'Bungee Hairline', cursive;
 	font-weight: bolder;
+	border: none;
 }
 .tb1 {
 	position:absolute;	
@@ -111,7 +110,7 @@
 
 .tb2{
 	position:absolute; top:3.7vw; 
-	width:0.9vw; height: 0.9vw;
+	width:0.6vw; height: 0.9vw;
 
 }
 .t5{
@@ -126,15 +125,15 @@
 
 .tb3 {
 	position:absolute;	
-	width:0.9vw; height: 0.9vw;
+	width:0.6vw; height: 0.9vw;
 }
 .t8{
 	top:5.5vw; 
-	left:60%;
+	left:5.8vw;
 }
 .t9{
 	top:6vw; 
-	left:72%;
+	left:7vw;
 }
 
 
@@ -161,4 +160,3 @@
 	background-color: transparent;
 	background-color: #b0beff;
 }
-
