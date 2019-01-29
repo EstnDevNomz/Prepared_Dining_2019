@@ -32,7 +32,7 @@
 
 <title>Menu</title>
 </head>
-<body>
+<body style="overflow: auto;">
 <%
 	if(session.getAttribute("ValidMem") == null){
 %>

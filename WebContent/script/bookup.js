@@ -160,6 +160,7 @@ function getCookie(c_name)
 	$('#today').click(function(){
 		var a = 'today';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 		$('.day').val(a);
@@ -167,30 +168,35 @@ function getCookie(c_name)
 	$('#manana').click(function(){
 		var a = 'manana';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#third').click(function(){
 		var a = 'third';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#fourth').click(function(){
 		var a = 'fourth';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#fifth').click(function(){
 		var a = 'fifth';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});
 	$('#sixth').click(function(){
 		var a = 'sixth';
 		$('.re_day').text(a);
+		$('.re_day').val(a);
 		$('.reserve_day').val(a);
 		$('.reserve_day').text(a);
 	});

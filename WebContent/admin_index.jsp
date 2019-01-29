@@ -35,8 +35,10 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
 <!-- 			Outside Link			 -->
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet"> 
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
+
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <script type="text/javascript" src="http://www.macosxsupport.com/jquery.zoomooz.min.js"></script>
@@ -53,18 +55,17 @@
 <script type="text/javascript" src="script/paymentInput.js"></script>
 <script type="text/javascript" src="script/paymentView.js"></script>
 <script type="text/javascript" src="script/ajax.js"></script>
+
 <!-- 				가로스크롤 						-->
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
 <script type="text/javascript" src="jquery.HSlider.min.js"></script>
+<script type="text/javascript" src="script/checkInvalid.js"></script>
 
 		<title>JSP AJAX</title>
 
 </head>
 
-<body onload="init();$('#inputpay').hide();$('#pay').hide();
-			$('.table_1').hide();$('.table_2').hide();$('.table_3').hide();
-			$('.table_4').hide();$('.table_5').hide();$('.table_6').hide();
-			$('.table_7').hide();$('.table_8').hide();$('.table_9').hide();" style="height: 100%;overflow: hidden;">
+<body onload="init();$('#inputpay').hide();$('#pay').hide();"style="background-color: #000;">
 			
 <%	//	고객 접속확인
 	if(session.getAttribute("ValidMem") == null){
@@ -78,7 +79,7 @@
 %>
 
 	<div class="zoomViewport demo" style=" height: 85%;">
-	    <div class="zoomContainer" style="height: 85%;">
+	    <div class="zoomContainer" style="height: 85%;" data-duration="100">
 			<div class="container-fluid" style="height: 85%;">
 			
 				<div class="wrap">
@@ -112,9 +113,9 @@
 								</div>
 							</div>
 							<table class="row form-group" 
-									style="text-align: center;padding:2%;width:100%; background-color: #feeba8; font-size: 100%;overflow:scroll;">
+									style="text-align: center;padding:2%;width:100%; background-color: #659EA8; font-size: 100%;overflow:scroll;">
 								<thead style="padding: 5px;">
-									<tr class="table" style="background-color: #999999;color:#ffffff;
+									<tr class="table" style="background-color: #659EA8;color:#ffffff;
 									font-family: 'Bungee Hairline', cursive; font-size: 80%;">
 										<th class="col-xs-1" style="text-align: center;padding:1% 0% 1% 0%;">Index </th>
 										<th class="col-xs-1" style="text-align: center;">Date </th>
@@ -145,7 +146,7 @@
 							
 										<div class="pList scroll scroll4" id="pList"
 											style="position:absolute; width:98vw; 
-											background-color: #feeba8;overflow:auto;">
+											background-color: #90c5ce;overflow:auto;">
 											
 											<div class="listSub col-xs-12 label label-info">
 												<label class="col-xs-1">Index</label>
@@ -191,15 +192,15 @@
 						<!-- 	Page 3	 -->
 						<section>
 							<article style="left: 80%;top: 5%;">
-								<video id="video" poster="img/post_001.png" 
+								<video id="video" poster="" 
 										class="video-js"
 										width="350" height="260" 
 										controls="controls" 
-										style="border-radius: 20px;display: block;" autoplay="autoplay">
-									<source class="video" src="" type="video/mp4" />
+										style="border-radius: 20px;display: block;" autoplay="autoplay" loop="loop">
+									<source class="video" src="videos/SlowInfantileCusimanse.mp4" type="video/mp4" />
 								</video>
 								<br/>
-								<div style="position:relative;left:6%;">
+								<div class="vidOps" style="display:none; position:relative;left:6%;">
 									<button type="button" id="stop" 
 											class="glyphicon glyphicon-stop" 
 											style="width: 40px; height:40px; border: none; border-radius:30%;">
@@ -222,19 +223,19 @@
 							<!-- get Distance method -->
 							<script type="text/javascript" src="script/calcDistance.js"></script>
 						     <label style="width:20vw;">My location:</label> <br/> 
-						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#B6AEA5; text-align: left;">
+						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#5E959F; text-align: left;">
 						      	<span id="startLat"></span>°, <span id="startLon"></span>°
 						      </a>
 						 	<br/><br/>
 		
 						      Store location:<br/> 
-						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #B6AEA5">
+						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #5E959F">
 						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
 						      </a>
 						    <br/><br/>
 						   	
 						     Distance:<br/> 
-						     <label class="distance" style="background-color:#ffffff;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
+						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
@@ -259,12 +260,12 @@
 			<!-- 				Users account 				-->
 			
 				<div class="login">
-					<a href="member/logOut.jsp" id="logout"	class="blur"> 
+					<a href="member/logOut.jsp" id="logout"	class="admin_blur" style="color: #659EA8"> 
 						<span class="out">Sign out</span>			
 					</a>&nbsp;&nbsp;						
 					<br/>
 					
-					<a href="javascript:modifyPopupOpen();" id="modify"	class="blur"> 
+					<a href="javascript:modifyPopupOpen();" id="modify"	class="admin_blur" style="color: #659EA8"> 
 						<span class="modifyinfo">Modify information</span>
 					</a>
 	
@@ -272,11 +273,11 @@
 	
 			<!-- 				menu list 				-->
 
-				<div id="menu" class="level0 blur" >
+				<div id="menu" class="level0" style="border-color: #90c5ce;">
 				
 					<!-- 		for insert menu			 -->
 					<a href="javascript:menuPopupOpen()"  > 
-					<span class="apptitle" >Add List</span>
+					<span class="addMenu apptitle" >Add List</span>
 				</a>
 	 					<!-- 			array List Image  : sign out				-->
 					<div>				
@@ -300,12 +301,11 @@
 
 		<!--	Bookup Table	   -->
 
-		<div id="reserve" class="zoomTarget level0" data-duration="800">
-			<span class="apptitle blur" style="font-size: 1vw">Book Up</span><br /> <br /> 
+		<div id="reserve" class="zoomTarget level0" data-duration="100" style="border-color: #659EA8">
+			<span class="apptitle blur" style="font-size: 1vw; color: #3DA585">Book Up</span><br /> <br /> 
 			<div style="width: 100%; height: 100%;">
-				<img class="tableImg zoomTarget zoomButton "
-					data-type="next" data-root=".demo" data-duration="800" 
-					src="img/foodcourt.png" alt=""/>
+				<img class="tableImg zoomButton "
+					src="img/court_black.png" alt=""/>
 				<br><br><br><br>
 				
 				<!-- 	no.1 Table book up 	-->
@@ -348,31 +348,31 @@
 
 	<%@ include file="reservation/bookup.jsp" %>		
 	
-		<div id="book" class="raw zoomTarget level0" 
-			 style="font-family: 'Bungee Hairline', cursive; font-size: 80%; font-weight:bolder;">
-			<span style="color: black;"><%=dow %></span>&nbsp;&nbsp;
-			<span style="color:#cfcfcf"><%= yyyy %></span>
+		<div id="book" class="raw zoomTarget level0"  data-duration="100"
+			 style="font-family: 'Bungee Hairline', cursive; font-size: 80%; font-weight:bolder;border-color: #659EA8">
+			<span style="color:#659EA8;"><%=dow %></span>&nbsp;&nbsp;
+			<span style="color:#659EA8;"><%= yyyy %></span>
 				<br/><br/>
 
 				<!-- 	Day of weeks	 -->
 			<div class="date">
 			    <div class="col-xs-2 week_f"><%=EE[0] %>
-		    		<br/><span id="today" class="today admin_date_f date_sh" ><%=af[0] %></span>
+		    		<br/><span id="today" class="today admin_date_f admin_date_sh"><%=af[0] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[1] %>
-		    		<br/><span id="manana" class="manana admin_date_f date_sh" ><%=af[1] %></span>
+		    		<br/><span id="manana" class="manana admin_date_f admin_date_sh""><%=af[1] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[2] %>
-		    		<br/><span id="third" class="third admin_date_f date_sh" ><%=af[2] %></span>
+		    		<br/><span id="third" class="third admin_date_f admin_date_sh""><%=af[2] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[3] %>
-		    		<br/><span id="fourth" class="fourth admin_date_f date_sh" ><%=af[3] %></span>
+		    		<br/><span id="fourth" class="fourth admin_date_f admin_date_sh""><%=af[3] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[4] %>
-		    		<br/><span id="fifth" class="fifth admin_date_f date_sh" ><%=af[4] %></span>
+		    		<br/><span id="fifth" class="fifth admin_date_f admin_date_sh""><%=af[4] %></span>
 		    	</div>
 		    	<div class="col-xs-1 week_f"><%=EE[5] %>
-		    		<br/><span id="sixth" class="sixth admin_date_f date_sh" ><%=af[5] %></span>
+		    		<br/><span id="sixth" class="sixth admin_date_f admin_date_sh""><%=af[5] %></span>
 		    	</div>
 		    </div>	
 		    	<br/>		    	
@@ -388,7 +388,7 @@
 <%-- 			<c:forEach var="item" begin="0" items="${fn:split('today|manana|third|fourth|fifth|sixth', '|') }" end="8" varStatus="status">
 				<div align="left"  class="tp timepicker${status.index }"  style="padding-left: 13%">
 				
-		 			<c:forEach var="j" begin="0" items="${calender_0}" end="15" varStatus="st">
+		 			<c:forEach var="j" begin="0" items="${calendar_0}" end="15" varStatus="st">
 			 			
 
 						<span class="" style="text-align: center;">	
@@ -407,8 +407,8 @@
 	 			<c:forEach var="j" begin="0" items="${t1_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_admin time-sh"
-							value="${j.calendarTime} " 
-							onclick="deleteCalendar($('.t1').val(), '${j.calendarTime}', 'today')">	
+							value="${j.calendarTime}" 
+							onclick="deleteCalendar($('.t1').val(), '${j.calendarTime}', 'today')">
 					</span>			
 				</c:forEach>			
 			</div>
@@ -425,7 +425,7 @@
 	 			<c:forEach var="j" begin="0" items="${t1_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_admin time-sh"
-							value="${j.calendarTime} " 
+							value="${j.calendarTime} "
 							onclick="deleteCalendar($('.t1').val(), '${j.calendarTime}', 'third')">	
 					</span>			
 				</c:forEach>			
@@ -460,11 +460,9 @@
 										
 				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t1').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
 				</div>
 		</div>
@@ -526,15 +524,13 @@
 				</c:forEach>			
 			</div>		  
 			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t2').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>
 		
 		<div class="table_3" style="display:none;">
@@ -593,16 +589,13 @@
 					</span>			
 				</c:forEach>			
 			</div>		  
-			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t3').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>	
 		
 		<div class="table_4" style="display:none;">
@@ -662,15 +655,13 @@
 				</c:forEach>			
 			</div>		  
 			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t4').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>	
 		
 		<div class="table_5" style="display:none;">
@@ -730,15 +721,13 @@
 				</c:forEach>			
 			</div>		  
 			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t5').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>	
 		
 		<div class="table_6" style="display:none;">
@@ -798,15 +787,13 @@
 				</c:forEach>			
 			</div>		  
 			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t6').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>
 			
 		<div class="table_7" style="display:none;">
@@ -866,15 +853,13 @@
 				</c:forEach>			
 			</div>		  
 			
-							<!-- 	Add Canlendar	-->
+				<!-- 	Add Canlendar	-->
 				<div>
-					<button type="button" id="" 
-							class="btn btn-default" 
-							style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
+					<button type="button" id="" class="add_cal"
 							onclick="javascript:addCalendar($('.t7').val(), $('.re_day').val())">
-						Add Canlendar
+						+
 					</button>
-			</div>
+				</div>
 		</div>	
 
 		<div class="table_8" style="display:none;">
@@ -934,15 +919,13 @@
 				</c:forEach>			
 			</div>		  
 		
-					<!-- 	Add Canlendar	-->
-			<div>
-				<button type="button" id="" 
-						class="btn btn-default" 
-						style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
-						onclick="javascript:addCalendar($('.t8').val(), $('.re_day').val())">
-					Add Canlendar
-				</button>
-			</div>
+				<!-- 	Add Canlendar	-->
+				<div>
+					<button type="button" id="" class="add_cal"
+							onclick="javascript:addCalendar($('.t8').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>
 		</div>	
 		
 		<div class="table_9" style="display:none;">
@@ -1000,19 +983,18 @@
 							onclick="deleteCalendar($('.t9').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-							<!-- 	Add Canlendar	-->
-			<div>
-				<button type="button" id="" 
-						class="btn btn-default" 
-						style="position:relative; font-size: 100%; margin: 5px 0 5px 0;"
-						onclick="javascript:addCalendar($('.t9').val(), $('.re_day').val())">
-					Add Canlendar
-				</button>
 			</div>
-		</div>			
-		
+						
+				<!-- 	Add Canlendar	-->
+				<div>
+					<button type="button" id="" class="add_cal"
+							onclick="javascript:addCalendar($('.t9').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>
+		</div>
+		<!-- temp cell -->
+		<input type="hidden" class="re_day" value="">		
 		<%
 			}
 		%>
@@ -1024,8 +1006,8 @@
 		<!-- 	Basket	 -->
 		
 		<form id="bookup" action="bookup.do" name="bookup" method="post">
-			<div id="basket" class="apptitle zoomTarget level0"  data-duration="800">
-				<span id="bkTitle" class="blur">Basket</span>
+			<div id="basket" class="apptitle zoomTarget level0"  data-duration="100" style="border-color: #659EA8">
+				<span id="bkTitle" class="blur" style="color: #3DA585"">Basket</span>
 	<%
 		if (session.getAttribute("ValidMem") == null) {
 
@@ -1035,7 +1017,7 @@
 							class="insite g_font site" 
 							type="button" 
 							value="Bookup"
-							style="position: relative;"
+							style="position: relative;background-color:#659EA8 "
 							data-toggle="modal" 
 							data-target="#payment"/>
 	
@@ -1060,7 +1042,7 @@
 		
 			<!--  Reservation Information -->
 		
-			<div style="position:absolute; top:20vw; left:78vw; 
+			<div style="position:absolute; top:20vw; left:78vw; color:#659EA8;
 				 font-family: 'Bungee Hairline', cursive;font-size: 0.5vw; font-weight:bolder;">
 				 
 				<label style="border:none;">${email}</label>
@@ -1081,10 +1063,10 @@
 				       <br/>       
 				       
 				<c:forEach var="j" begin="0" varStatus="st" end="5">
-						<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
+						<label class="menuname${st.index}" style="border:none; color: #33B88C;" ></label>
 						<input type="hidden" name="menuname${st.index}" 
 							   class="menuname${st.index}" value=" " >
-						<br/><br/>
+						<br/>
 				</c:forEach>
 
 				  
@@ -1094,7 +1076,7 @@
 			</div>
 			
 				<!-- Hidden information for submit -->
-				<input type="hidden" name="distance" id="dist" class="dist" value="" style="color:black;">
+				<input type="hidden" name="distance" id="dist" class="dist"value="">
 				<input type="hidden" name="phone" value="${phone }">
 				<input type="hidden" name="email" value="${email }">
 				<input type="hidden" name="customer_name" value="${firstName }${lastName }">
@@ -1128,16 +1110,18 @@
 	
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 	<script type="text/javascript">
+	//HSlider
 		$(".slider").HSlider({
 			easing: 'ease',
 			animationTime: '400',
 			pagination: true
 		});
 	</script>
-	
+		<!-- Description Footer -->
+		<label class="admin_footer ">You are logged in as administrator.</label>
+	<script type="text/javascript" src="script/automaticManual.js"></script>	
 </body>
 
 </html>

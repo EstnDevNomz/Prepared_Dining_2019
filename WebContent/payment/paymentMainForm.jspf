@@ -8,6 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../script/init.js"></script>
 	
 <title></title>
 </head>
@@ -43,7 +44,7 @@
 									</span>
 								</a>
 								<span class="tos col-xs-7">
-									<input type="checkbox">
+									<input id="TOS" name="TOS" type="checkbox">
 									I agree to the Term of service
 								</span>
 							</div><br /><hr/>
@@ -91,20 +92,20 @@
 							
 								<div class="paymidTitle payinputLabel">
 									<div class=""> Card number </div>
-									<input type="text" id="cdn" name="cardNumber" class="paytextbox"/>																													
+									<input type="text" id="cdn" name="cardNumber" class="paytextbox" maxlength="19"/>																													
 								</div>							
 				
 								<div class="paymidTitle payinputLabel">
 									<div class=""> Expiration date</div>
-									<input type="text" id="expd" name="inval" class="paytextbox"/>
+									<input type="text" id="expd" name="inval" class="paytextbox"maxlength="5"/>
 								</div>
 								
 								<div class="paymidTitle payinputLabel">
 									<div class="">CVC</div>
-									<input type="password" id="cvc" name="cvc" class="paytextbox" />
+									<input type="password" id="cvc" name="cvc" class="paytextbox" maxlength="3"/>
 								</div>
 								<div  style="margin-top:4%;">
-									<select class="vt" id="installment" name="installment" val>
+									<select class="vt" id="installment" name="installment">
 										<option class="vt" value="Installment">Installment</option>
 										<option class="vt" value="allatonce">All at once</option>
 									  	<option class="vt" value="3 months">3 months</option>
@@ -159,15 +160,16 @@
 								<input id="payNext" type="button" name="paybtn" class="btn btn-light col-xs-6" 
 									style= "margin-top:7px;left:3.5%;
 											font-size:140%; border-radius: 5px; 
-											width: 100%" value="Next" onclick="">
+											width: 100%" value="Next" onclick="checkPayNext()">
 											
 							<!-- 	payment button	 -->
 								<input id="pay" type="button" name="paybtn" class="btn btn-light col-xs-6" 
 									style= "margin-top:7px;left:3.5%;
 											font-size:140%; border-radius: 5px; 
 											width: 100%" value="payment" data-dismiss="modal" 
-											onclick="paymentPopupOpen()">
-							</div>						
+											onclick="checkPayment()">
+							</div>
+						
 							<div class="col-xs-12" style="height: 10px;"></div>
 						</div>
 					</div>

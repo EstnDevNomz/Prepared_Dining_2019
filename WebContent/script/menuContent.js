@@ -59,8 +59,19 @@
 			filename= null;
 		
 			$('.menuname').val('');
+			$('.menuname').text('')
+			$('.menuname0').text('')
+			$('.menuname1').text('')
+			$('.menuname2').text('')
+			$('.menuname3').text('')
+			$('.menuname4').text('')
+			$('.menuname5').text('')
+			$('.menuname6').text('')
+			$('.menuname7').text('')
+			$('.menuname8').text('')
 			$('.withdraw').val(0);
-			$('.paysum').text(0);
+			$('.withdraw').text(0);
 			$('.paysum').val(0);
+			$('.paysum').text(0);
 			
 		}

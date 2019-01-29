@@ -29,3 +29,10 @@ $('#stop').click(function(){
 	$('#play').removeClass('glyphicon-pause');
 	$('#play').addClass('glyphicon-play');
 });
+
+$('.video-js').mouseenter(function() {
+	$('.vidOps').css('display', 'block');
+});
+$('.container-fluid').mouseenter(function() {
+	$('.vidOps').css('display', 'none');
+});

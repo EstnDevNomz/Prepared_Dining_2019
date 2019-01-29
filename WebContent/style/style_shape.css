@@ -1,3 +1,8 @@
+body {
+	background-color: #F6F5F4; 
+	height: 100%; overflow:hidden;
+	
+}
 .level0, .level1, .level2 {
 	margin-left:1%;
 	margin-top:1%;
@@ -34,13 +39,30 @@
 }
 #basket {	
 	left:66%; height:10vw; top: 18.3vw;
-	border-bottom-left-radius: 20%;
-	border-bottom-right-radius: 20%;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	border-top-style: hidden;
 }
 
+.add_cal {
+	position:absolute;
+	right:0.3vw;
+	top:0.3vw; 
+	background-color:#88BFC7; 
+	font-size: 0.7vw; 
+	color:#fff;  
+	border:none; 
+	
+	padding:0 0.22vw 0 0.22vw;
+	transition:1s;
+}
+.add_cal:hover {
+	background-color:transparent;
+	background-color:#53a3ae; 
+	filter: blur(.02em);
+}
+
 .list {
-	border-radius: 10%;
 	transition:1s;
 }
 .list:hover{
@@ -136,27 +158,34 @@
 	left:7vw;
 }
 
+.calendarTime {
+	background-color: #6AE8CD;
+	
+}
 
 .date_sh {
-
-	border-radius: 12%;
+	border-radius: 15px;
 	background-color:#F6F5F4;
 	opacity: 0.5%;
    	text-align: left;
-   	border-radius: 12%;
+   	border-radius: 15px;
    	display: inline-block;
 }
-
-
 .date_sh:hover {
 	background-color:transparent;
 	background-color:#f2f2f2;
 }
 
-.time-sh {
-	padding: 0.3%; text-align: center;
+.admin_date_sh {
+
+	border-radius: 15px;
+	background-color:#000;
+	opacity: 0.5%;
+   	text-align: left;
+   	display: inline-block;
 }
-.time-sh:hover {
-	background-color: transparent;
-	background-color: #b0beff;
+.admin_date_sh:hover {
+	background-color:transparent;
+	background-color:#93b9bf;
+	color: #fff;
 }

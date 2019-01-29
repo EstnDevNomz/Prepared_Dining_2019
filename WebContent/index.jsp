@@ -51,6 +51,7 @@
 	<script type="text/javascript" src="script/paymentInput.js"></script>
 	<script type="text/javascript" src="script/paymentView.js"></script>
 	<script type="text/javascript" src="script/ajax.js"></script>
+	<script type="text/javascript" src="script/checkInvalid.js"></script>
 		<!-- 				가로스크롤 						-->
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
 	<script type="text/javascript" src="jquery.HSlider.min.js"></script>
@@ -58,11 +59,7 @@
 
 </head>
 
-<body onload="init();$('#inputpay').hide();$('#pay').hide();
-			$('.table_1').hide();$('.table_2').hide();$('.table_3').hide();
-			$('.table_4').hide();$('.table_5').hide();$('.table_6').hide();
-			$('.table_7').hide();$('.table_8').hide();$('.table_9').hide();
-			$('.table_10').hide();" style="background-color: #F6F5F4; height: 100%; overflow:hidden;">
+<body onload="init();">
 			
 <%
 	//	고객 접속확인
@@ -173,7 +170,7 @@
 						    <br/><br/>
 						   	
 						     Distance:<br/> 
-						     <label class="distance" style="background-color:#F6F5F4;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
+						     <label class="distance" style="position:absolute; background-color:#F6F5F4;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;right:9vw;" >distance</label>
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
@@ -255,15 +252,33 @@
 				
 				<!-- 	Table book up 	-->
 						
-						<input type="button" name="t_index" class="table tb1 t1 zoomButton"value="1" data-type="next" data-root=".demo">					
-						<input type="button" name="t_index" class="table tb1 t2 zoomButton"value="2" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb1 t3 zoomButton"value="3" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb1 t4 zoomButton"value="4" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb2 t5 zoomButton"value="5" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb2 t6 zoomButton"value="6" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb2 t7 zoomButton"value="7" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb3 t8 zoomButton"value="8" data-type="next" data-root=".demo">
-						<input type="button" name="t_index" class="table tb3 t9 zoomButton"value="9" data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="1" 
+							class="table tb1 t1 zoomButton"
+							data-type="next" data-root=".demo">					
+						<input type="button" name="t_index" value="2" 
+							class="table tb1 t2 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="3" 
+							class="table tb1 t3 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="4" 
+							class="table tb1 t4 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="5" 
+							class="table tb2 t5 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="6" 
+							class="table tb2 t6 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="7" 
+							class="table tb2 t7 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="8" 
+							class="table tb3 t8 zoomButton"
+							data-type="next" data-root=".demo">
+						<input type="button" name="t_index" value="9" 
+							class="table tb3 t9 zoomButton"
+							data-type="next" data-root=".demo">
 																								
 			</div>
 		</div>
@@ -329,7 +344,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%;">
 	 			<c:forEach var="j" begin="0" items="${t1_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -338,7 +353,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t1_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -347,7 +362,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t1_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -356,7 +371,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t1_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -365,7 +380,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t1_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -374,7 +389,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t1_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -387,7 +402,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -396,7 +411,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -405,7 +420,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -414,7 +429,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -423,7 +438,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -432,7 +447,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t2_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -445,7 +460,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -454,7 +469,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -463,7 +478,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -472,7 +487,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -481,7 +496,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -490,7 +505,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t3_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -503,7 +518,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -512,7 +527,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -521,7 +536,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -530,7 +545,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -539,7 +554,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -548,7 +563,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t4_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -561,7 +576,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -570,7 +585,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -579,7 +594,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -588,7 +603,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -597,7 +612,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -606,7 +621,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t5_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -619,7 +634,7 @@
 			<div align="left"  class="tp timepicker0" style="padding-left:13%">
 	 			<c:forEach var="j" begin="0" items="${t6_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -628,7 +643,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left:13%">
 	 			<c:forEach var="j" begin="0" items="${t6_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -637,7 +652,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t6_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -646,7 +661,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t6_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -655,7 +670,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t6_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -664,7 +679,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t6_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -677,7 +692,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -686,7 +701,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -695,7 +710,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -704,7 +719,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -713,7 +728,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -722,7 +737,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t7_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -735,7 +750,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -744,7 +759,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -753,7 +768,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -762,7 +777,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -771,7 +786,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -780,7 +795,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t8_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -793,7 +808,7 @@
 			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -802,7 +817,7 @@
 			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -811,7 +826,7 @@
 			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -820,7 +835,7 @@
 			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -829,7 +844,7 @@
 			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -838,7 +853,7 @@
 			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
 	 			<c:forEach var="j" begin="0" items="${t9_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
-						<input type="button" class="time time_admin time-sh"
+						<input type="button" class="time time_nomal time-sh"
 							value="${j.calendarTime} " 
 							onclick="time('${j.calendarTime}')">	
 					</span>			
@@ -987,15 +1002,7 @@
 	
 
 								
-		<!-- 	Descript sentence	-->
-		<div class="footer raw description" 
-		     style="max-width:100%; width:100%; position:absolute; margin:1% 0 0 2%; align-self:center;
-					font-family: 'Bungee Hairline', cursive; ">
-				<label id="footer" class="typingFooter ">Welcome to my Store!! ${firstName} ${lastName} Would you like to select menu?</label>
 
-		</div>	 
-		
-			<script type="text/javascript" src="script/automaticManual.js"></script>
 	<%	
 	if(session.getAttribute("ValidMem") == null){
 	%>
@@ -1025,5 +1032,15 @@
 			pagination: true
 		});
 	</script>
+	
+			<!-- 	Descript sentence	-->
+		<div class="footer raw description" 
+		     style="max-width:100%; width:100%; position:absolute; margin:1% 0 0 2%; align-self:center;
+					font-family: 'Bungee Hairline', cursive; ">
+				<label id="footer" class="typingFooter ">Welcome to my Store!! ${firstName} ${lastName} Would you like to select menu?</label>
+
+		</div>	 
+		
+			<script type="text/javascript" src="script/automaticManual.js"></script>
 </body>
 </html>

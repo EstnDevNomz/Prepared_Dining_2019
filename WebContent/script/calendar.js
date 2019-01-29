@@ -13,19 +13,18 @@
 		$('#today').click(function() {
 			// reset color
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			// convert color
 			$('#today').css('background-color', '#fb6974');
 			$('#today').css('color', 'white');
-			
 			$('.tp').hide();
 			$('.timepicker0').show();
 		});
 		$('#manana').click(function() {
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			
@@ -37,7 +36,7 @@
 		});
 		$('#third').click(function() {
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			
@@ -50,7 +49,7 @@
 		});
 		$('#fourth').click(function() {
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			
@@ -63,7 +62,7 @@
 		});
 		$('#fifth').click(function() {
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			
@@ -76,7 +75,7 @@
 		});
 		$('#sixth').click(function() {	
 			$('.date_f').css('background-color', '#F6F5F4');
-			$('.admin_date_f').css('background-color', '#ffffff');
+			$('.admin_date_sh').css('background-color', '#000');
 			$('.date_f').css('color', '#aaaaaa');
 			$('.admin_date_f').css('color', '#aaaaaa');
 			
@@ -90,3 +89,4 @@
 		$('.tp').click(function() {	
 			$('.reCon').css('display', 'block');
 		});
+		

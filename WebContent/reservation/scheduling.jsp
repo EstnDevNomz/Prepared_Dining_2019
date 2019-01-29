@@ -16,6 +16,7 @@
 <script type="text/javascript" src="http://www.macosxsupport.com/jquery.zoomooz.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
+<link rel="stylesheet" href="../style/style_shape.css" type="text/css"	media="screen" />
 <script type="text/javascript" src="../script/ajax.js"></script>
 
 <script type="text/javascript">
@@ -109,25 +110,28 @@ function pad(n, width) {
 	}
 </style>
 </head>
-<body>
+<body style="background-color: #022833;">
 	<form id="schedule" action="schedule.do" name="schedule" method="post">		
 		<div class="container-fluid" >
 			<div class="row">
 				<div class="col-xs-12">
-						<input type="text" name="calendarTable" id="calendarTable" 
+						<input type="text" name="calendarTable" id="calendarTable"  style="background-color: #cefff6"
 							   class="calendarTable col-xs-2 qr" value="Table No.<%=request.getParameter("calendarTable")%>"> <!-- 팝업URI에서 추출한 Value -->
-						<input type="text" name="calendarDay" id="day" class="day col-xs-1	qr" value="<%=request.getParameter("re_day")%>">
-						<input type="text" class="hh col-xs-1 qr" value="" placeholder="Hour">
-						<input type="text" class="mm col-xs-2 qr" value="" placeholder="Minute">
-						<input type="text" class="step col-xs-1 qr" value="" placeholder="step">
-						<input type="text" class="rn col-xs-1 qr" value="" placeholder="Amount">
+						<input type="text" name="calendarDay" id="day" class="day col-xs-1	qr" value="<%=request.getParameter("re_day")%>"style="background-color: #A4EBDF">
+						<input type="text" class="hh col-xs-1 qr" value="" placeholder="Hour"style="background-color: #cefff6">
+						<input type="text" class="mm col-xs-2 qr" value="" placeholder="Minute"style="background-color: #cefff6">
+						<input type="text" class="step col-xs-1 qr" value="" placeholder="step"style="background-color: #cefff6">
+						<input type="text" class="rn col-xs-1 qr" value="" placeholder="Amount"style="background-color: #cefff6">
 						
-						<button type="button" class="col-xs-2 qr" style=""onclick="javascript:schedule_time();">Input</button>
+						<button type="button" class="col-xs-2 qr btn btn-default" 
+								style="background-color: #59A2AB;color: #023141;" 
+								onclick="javascript:schedule_time();">Input</button>
 				</div>
 				<div class="col-xs-12" style="margin-top:5px; padding-left: 13%">
 					<div>
 						<c:forEach var="i" begin="0" end="27" varStatus="st">
-							<input name="calendarTime" type="submit" id="time" class="record${st.index } record"  value=""/>
+							<input class="record${st.index } record calendarTime" style="color: #023141;"
+								name="calendarTime" type="submit" value=""/>
 						</c:forEach>
 					</div>	
 				</div>

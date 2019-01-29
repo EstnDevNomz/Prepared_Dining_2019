@@ -27,13 +27,3 @@
 			$("#content").html(content);
 			$("#price").text("$"+ price + " USD");
 	}
-	
-	$('#payNext').click(function() {
-		$('#cardpicker').hide();
-		$('#inputpay').show();
-		$('#payNext').hide();
-		$('#pay').show();
-	});
-	
-
-	

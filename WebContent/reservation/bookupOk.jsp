@@ -36,7 +36,7 @@
     	sessionDistance = (String)session.getAttribute("userDistance");
     	serverDistance = dao.confirmDistance(dto.getCustomerEmail()).getCustomerDistanceInfo();
     	
-    	log("serverDistance:  " + serverDistance);
+    	log("payerdistance:  " + payerdistance);
     	log("sessionDistance:  " + sessionDistance);
     	log("serverDistance:  " + serverDistance);
     	

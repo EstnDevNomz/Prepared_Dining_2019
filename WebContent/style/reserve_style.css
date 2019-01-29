@@ -16,17 +16,22 @@
 }
 
 .time_admin{
-	width:20%; height:10%; 
+	width:22%; height:10%; 
 	padding:1%;
 	border:0; 
 	outline:0;
 	position:relative;
 	font-size: 56%;
-	color:white; 
-	background-color: #d1d0dc; 
-	border-radius: 2.5px; 
+	color: #b5ced2; 
+	border: 1px solid #5E959F; 
+	background-color:#000;
+	border-radius: 3px; 
 	text-decoration: none;
 	font-family: 'Bungee Hairline', cursive;
 	font-weight:bolder; 
 
+}
+.time_admin:hover {
+	border-color:transparent;
+	border-color: #F85F6D;
 }

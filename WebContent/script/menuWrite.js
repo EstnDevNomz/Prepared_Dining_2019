@@ -1,5 +1,6 @@
 function change() {
 	var filename = document.box.menuImg.value;
+	alert(filename)
 	filename = filename.substring(filename.lastIndexOf("\\"), filename.length);	//cut file name
 	document.box.img.src = "../img/" + filename;	//Input the file Image into 'src' attribute
 }

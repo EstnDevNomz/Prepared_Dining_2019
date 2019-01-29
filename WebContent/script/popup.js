@@ -24,19 +24,10 @@ function menuPopupOpen() {
 	window.open(popUrl, "", popOption);
 }
 function mapPopupOpen() {
-	
 	var popUrl = "http://127.0.0.1:8181/Project_OpenDining_L.H-S/location/map.jsp"; 
 	var popOption = "top=200, left=500, width=420, height=420, resizable=no, menubar=no, location=no, directoryies=no, resizable=no, toolbar=no, scrollbars=no, status=no;";
 	window.open(popUrl, "", popOption);
 }
-function paymentPopupOpen() {
-	//when you click the payment button
-	//$("#creditcard").attr("action","payment.do").submit();
-	$("#bookup").attr("action","bookup.do").submit();
-	
-	//response.sendRedirect("../reservation/bookupOk.jsp");
-}
-
 function addCalendar(calendarTable, re_day) {
 	 //Attach the parameter from the Calender in index.jsp 
 	var popUrl = "reservation/scheduling.jsp?calendarTable=" + calendarTable + "&re_day=" + re_day;
@@ -57,7 +48,6 @@ function checkLogin() {
 		document.loginForm.submit();
 	}
 }
-
 function checkWrite() {
 	if (document.joinForm.firstName.value == "") {
 		alert("please insert into firstname");
@@ -65,16 +55,12 @@ function checkWrite() {
 	} else if (document.joinForm.lastName.value == "") {
 		alert("please insert into lastname");
 		document.joinForm.lastName.focus();
-
 	} else if (document.joinForm.customerEmail.value == "") {
 		alert("please insert into E-mail");
-
 	} else if (document.joinForm.customerPwd.value == "") {
 		alert("please insert into password");
-
 	} else if (document.joinForm.customerPwd.value !== document.joinForm.repw.value) {
 		alert("Passwords do not match");
-
 	} else {
 		document.joinForm.submit();
 	}
@@ -84,20 +70,16 @@ function checkWrite() {
 function checkModify(){
 	if (document.modifyForm.customerPwd.value ==""){
 		alert("please insert into password");
-		document.modifyForm.customerPwd.focus();
-		
+		document.modifyForm.customerPwd.focus();		
 	} else if(document.modifyForm.customerPwd.value != document.modifyForm.repw.value){
 		alert("Passwords do not match");
-		modifyForm.repw.focus();
-		
+		modifyForm.repw.focus();		
 	} else if(document.modifyForm.customerPhone.value.length == ""){
 		alert("please insert into phone number");
-		modifyForm.customerPhone.focus();
-		
+		modifyForm.customerPhone.focus();	
 	} else if(document.modifyForm.customerAddr.value.length == ""){
 		alert("please insert into address");
-		modifyForm.customerAddr.focus();
-		
+		modifyForm.customerAddr.focus();	
 	} else {
 	document.modifyForm.submit();
 	}

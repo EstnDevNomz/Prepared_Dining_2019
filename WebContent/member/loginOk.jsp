@@ -96,10 +96,19 @@
 	// Define phone and distance values as a session
 	session.setAttribute("phone", phone);
 	session.setAttribute("userDistance", userDistance);
+%>
+<script>
+	alert('Your location information has been stored to the Database(' + <%=userDistance %> + ')and session');
+</script>
+<%	
+	
 	
 	log("phone : " + phone);
 	log("distance : " + dist);
 	log("userDistance : " + userDistance);		
+	
+	
+	
 			
 		}
 	}

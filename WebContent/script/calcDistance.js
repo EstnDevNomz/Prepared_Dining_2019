@@ -33,7 +33,7 @@ function getDistance() {
           document.getElementById("currentLat").innerHTML = 37.508286743400000;
           document.getElementById("currentLon").innerHTML = 126.73514674630000;
           calc1 = calc.substr(0,7);
-          calc2 = calc.substr(0,4);
+          calc2 = calc.substr(0,7);
           
           document.getElementById("distance").value = calc1;
           $('.distance').text(calc2 + "km");
