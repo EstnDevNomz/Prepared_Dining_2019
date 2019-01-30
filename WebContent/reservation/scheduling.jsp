@@ -75,8 +75,11 @@ function schedule_time() {
 			//output
 			
 			$('.record'+i).val(pmam+' '+hours[i] +':'+ minutes[i]);
+						
 			
 		}
+		
+		
 }
 
 function pad(n, width) {
@@ -110,7 +113,7 @@ function pad(n, width) {
 	}
 </style>
 </head>
-<body style="background-color: #022833;">
+<body style="background-color: #022833;" onload="schedule_time();">
 	<form id="schedule" action="schedule.do" name="schedule" method="post">		
 		<div class="container-fluid" >
 			<div class="row">
@@ -123,7 +126,7 @@ function pad(n, width) {
 						<input type="text" class="step col-xs-1 qr" value="" placeholder="step"style="background-color: #cefff6">
 						<input type="text" class="rn col-xs-1 qr" value="" placeholder="Amount"style="background-color: #cefff6">
 						
-						<button type="button" class="col-xs-2 qr btn btn-default" 
+						<button type="button" class="sch-input col-xs-2 qr btn btn-default" 
 								style="background-color: #59A2AB;color: #023141;" 
 								onclick="javascript:schedule_time();">Input</button>
 				</div>
@@ -131,7 +134,7 @@ function pad(n, width) {
 					<div>
 						<c:forEach var="i" begin="0" end="27" varStatus="st">
 							<input class="record${st.index } record calendarTime" style="color: #023141;"
-								name="calendarTime" type="submit" value=""/>
+								name="calendarTime" type="submit" value="" onclick=""/>
 						</c:forEach>
 					</div>	
 				</div>

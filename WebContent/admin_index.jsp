@@ -235,7 +235,7 @@
 						    <br/><br/>
 						   	
 						     Distance:<br/> 
-						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;" >distance</label>
+						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;right:15vw;" >distance</label>
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">

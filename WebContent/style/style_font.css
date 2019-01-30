@@ -18,15 +18,6 @@
 body {
     font-family: 'Delius Unicase', cursive
 }
-.typing {
-    font-size: 120%;
-    color:gray;
-    width: 39em;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: .0.7em solid black;
-    -webkit-animation: typing 1.5s steps(31, end), blink-caret 5s step-end infinite;
-}
 .typingFooter {
 	font-size: 1.5vw;
 	color:gray;
@@ -43,9 +34,9 @@ body {
 	color: #3A9C7C;
 	font-size: 2vw;
 	font-weight: bolder;	
-		white-space: nowrap;
+	white-space: nowrap;
 	overflow: hidden;
-	border-right: .10em solid #3A9C7C;
+	border-right: .20em solid #59c19f;
 	-webkit-animation: typing 2s steps(36, end), blink-caret 1s step-end ;
 	-webkit-animation-delay: 1s;
 	-webkit-animation-fill-mode: both;
