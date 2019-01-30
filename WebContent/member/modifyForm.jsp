@@ -16,6 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="../script/popup.js" lang="UTF-8"></script>
+<link rel="stylesheet" href="../style/style_shape.css" type="text/css"	media="screen" />
 <link rel="stylesheet" href="../style/join_style.css" type="text/css" media="screen" />
 <!-- 블루라인 -->
 <script nonce="yUbipBQNsvQ" data-id="_gd">
@@ -49,14 +50,17 @@
 <!-- google font -->
 <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet"> 
 <link rel="stylesheet" href="../style/style_font.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../style/join_style.css" type="text/css"	media="screen" />
+
 <style type="text/css">
-.loginstyle {
-	font-family: 'Bungee Hairline', cursive;
-	font-weight: bolder;	
-}
+	.loginstyle {
+		font-family: 'Bungee Hairline', cursive;
+		font-weight: bolder;	
+	}
 </style>
 </head>
-<body>
+
+<body class="modify_body">
 	<div class="" style="position: absolute;"><div class="joinTitle" style="align-self: center;">My information</div>
 		
 		<form name="modifyForm" method="post" action="modifyOk.jsp">

@@ -192,6 +192,7 @@
 						<!-- 	Page 3	 -->
 						<section>
 							<article style="left: 80%;top: 5%;">
+								<!-- Video Section -->
 								<video id="video" poster="" 
 										class="video-js"
 										width="350" height="260" 
@@ -235,7 +236,7 @@
 						    <br/><br/>
 						   	
 						     Distance:<br/> 
-						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;right:15vw;" >distance</label>
+						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;position:absolute; right:9vw;;" >distance</label>
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">

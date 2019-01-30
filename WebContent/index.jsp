@@ -59,7 +59,7 @@
 
 </head>
 
-<body onload="init();">
+<body onload="init();" style="background-color: #F6F5F4;">
 			
 <%
 	//	고객 접속확인

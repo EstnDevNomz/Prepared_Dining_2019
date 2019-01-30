@@ -78,7 +78,7 @@
 </head>
 <title></title>
 
-<body>
+<body class="login_body">
 
 	<h1 align="center" class="joinTitle">
 		Sign in

@@ -51,9 +51,10 @@
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet"> 
 <link rel="stylesheet" href="../style/style_font.css" type="text/css"	media="screen" />
+<link rel="stylesheet" href="../style/join_style.css" type="text/css"	media="screen" />
 
 </head>
-<body>
+<body class="join_body">
 	<section>
 	<h1 align="center" class="joinTitle">
 		Create Account

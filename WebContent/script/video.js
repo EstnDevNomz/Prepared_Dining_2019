@@ -1,6 +1,11 @@
+//control filename input form
 $('.upload').mouseenter(function() {
 	$('.filename').css('display', 'block');
 });
+$('.upload').click(function() {
+	$('.filename').css('display', 'none');
+});
+
 
 function change() {
 	var video = document.getElementById("video");
