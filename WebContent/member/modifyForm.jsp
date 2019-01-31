@@ -61,8 +61,21 @@
 </head>
 
 <body class="modify_body">
-	<div class="" style="position: absolute;"><div class="joinTitle" style="align-self: center;">My information</div>
-		
+
+<%	//	고객 접속확인
+	if(session.getAttribute("ValidMem") == null){
+%>
+	<script type="text/javascript">
+		alert('Invalid connection.')
+		// Go back to Client View
+		opener.parent.location.replace('http://localhost:8181/Project_OpenDining_L.H-S/index.do');
+		self.close();
+	</script>
+<%
+	}else{
+%>
+
+	<div class="" style="position: absolute;"><div class="joinTitle" style="align-self: center;">My information</div>		
 		<form name="modifyForm" method="post" action="modifyOk.jsp">
 			<div class="container">
 				<div class="loginstyle">
@@ -168,5 +181,8 @@
 			</div>
 		</form>
 	</div>	
+<%
+		}
+%>
 </body>
 </html>

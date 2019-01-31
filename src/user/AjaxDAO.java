@@ -28,11 +28,9 @@ public class AjaxDAO {
 		}	
 	}
 	
-	public ArrayList<URDto> search(String keyword) {
-		String query = "SELECT * FROM bookup "
-				+ "WHERE t_index||menuname||email||"
-				+ "reserved_wmy||reserved_day||reserved_Time LIKE ?";
-		ArrayList<URDto> userList = new ArrayList<URDto>();
+	public ArrayList<PGHistoyDto> search(String keyword) {
+		String query = "SELECT * FROM creditcardcompany WHERE payment_date||creditcardfirm||cdn||customer_name||email||phone||withdraw LIKE ? ORDER BY payment_date DESC";
+		ArrayList<PGHistoyDto> userList = new ArrayList<PGHistoyDto>();
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -41,15 +39,15 @@ public class AjaxDAO {
 			System.out.println(rs);
 			
 			while (rs.next()) {
-				URDto dto = new URDto();
-				dto.setB_seq(rs.getTimestamp(1));
-				dto.setT_index(rs.getString(2));
-				dto.setEmail(rs.getString(3));
-				dto.setMenuname(rs.getString(4));
-				dto.setDistance(rs.getString(5));
-				dto.setReserved_wmy(rs.getString(6));
-				dto.setReserved_day(rs.getString(7));
-				dto.setReserved_Time(rs.getString(8));
+				PGHistoyDto dto = new PGHistoyDto();
+				dto.setPaymentDate(rs.getTimestamp("payment_date"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setWithdraw(rs.getString("withdraw"));
+				dto.setCard(rs.getString("creditcardfirm"));
+				dto.setCdn(rs.getString("cdn"));
+				dto.setName(rs.getString("customer_name"));
+				dto.setIntallment(rs.getString("installment"));
 				
 				userList.add(dto);
 				System.out.println("DAO LIST : " + userList);
@@ -143,7 +141,7 @@ public class AjaxDAO {
 	public void insertVideo(String filename) {
 		System.out.println("AjaxDao.insertVideo(filename): " + filename);
 		
-		String query = "INSERT INTO videos VALUES(?)";
+		String query = "INSERT INTO videos VALUES(vid_seq.nextval, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);

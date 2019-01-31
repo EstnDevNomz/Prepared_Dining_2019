@@ -41,3 +41,9 @@ $('.video-js').mouseenter(function() {
 $('.container-fluid').mouseenter(function() {
 	$('.vidOps').css('display', 'none');
 });
+
+/*$('.frame').click(function() {
+	alert('aaa')
+	var audio = document.getElementById("audio-frame");
+	audio.play();
+});*/

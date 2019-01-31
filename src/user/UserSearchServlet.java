@@ -95,18 +95,18 @@ public class UserSearchServlet extends HttpServlet {
 		result.append("{\"result\":[");
 		
 		AjaxDAO ajaxDAO = new AjaxDAO();
-		ArrayList<URDto> userList = ajaxDAO.search(keyword);
+		ArrayList<PGHistoyDto> userList = ajaxDAO.search(keyword);
 		System.out.println(userList);
 		
 		for(int i=0; i < userList.size(); i++) {
-			result.append("[{\"value\": \"" + userList.get(i).getB_seq() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getReserved_wmy() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getReserved_Time() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getT_index() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getMenuname() + "\"},");
+			result.append("[{\"value\": \"" + userList.get(i).getPaymentDate() + "\"},");
 			result.append("{\"value\": \"" + userList.get(i).getEmail() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getDistance() + "\"},");
-			result.append("{\"value\": \"" + userList.get(i).getDistance() + "\"}],");
+			result.append("{\"value\": \"" + userList.get(i).getPhone() + "\"},");
+			result.append("{\"value\": \"" + userList.get(i).getWithdraw() + "\"},");
+			result.append("{\"value\": \"" + userList.get(i).getCard() + "\"},");
+			result.append("{\"value\": \"" + userList.get(i).getCdn() + "\"},");
+			result.append("{\"value\": \"" + userList.get(i).getName() + "\"},");
+			result.append("{\"value\": \"" + userList.get(i).getIntallment() + "\"}],");
 			
 		}
 		

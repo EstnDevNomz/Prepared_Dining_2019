@@ -1,6 +1,13 @@
 body {
-	height: 100%; overflow:hidden;
+	height: 97%; overflow:hidden;
 	
+/*  	  height: 100%; margin: 0;
+	  background: -webkit-linear-gradient(to left, #F5F4F2 60%, #fff);
+	  background: -moz-linear-gradient(to left,  #F5F4F2 60%, #fff);
+	  background: -o-linear-gradient(to left,  #F5F4F2 60%, #fff);
+	  background: linear-gradient(to left,  #F5F4F2 60%, #fff); */
+	
+	/* effect : fade in
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
@@ -40,24 +47,30 @@ body {
 }
 
 
-.level0, .level1, .level2 {
-	margin-left:1%;
-	margin-top:1%;
-	border:0.5vw solid #9f9f9f;
+.level0, .order-list, #menu, #admin_menu, 
+#reserve, #book, #basket, .reserv-info {
+	position:absolute;
 	
 }
 
 /* shape */
 .level0 {
+	margin-left:1%;
+	margin-top:1%;
+	border:0.5vw solid #9f9f9f;
 	width:10.5vw; height:10.5vw;	
-	position:absolute;	
 	color: #cacaca;
 	text-align: center;
 	top: 18vw;
+	z-index: 1;
+}
+.order-list {
+	z-index: 5;
 }
 
 #menu {
 	left:21%;
+	z-index: 1;
 }
 #menu:hover{
 	position:absolute;
@@ -66,19 +79,42 @@ body {
 	transform-origin : 100% 40% 0;
     transform: scale(3);
 }
+#admin_menu {
+	left:21%;
+	z-index: 1;
+}
+#admin_menu:hover{
+	padding: 10px;
+	border: 0px solid #525ead;
+	transition:0s;
+	transform-origin : 100% 40% 0;
+    transform: scale(3);
+    
+}
 #reserve {
 	left:36%;
 	border-radius: 15%;
+	z-index: 1;
 	
 }
 #book {
 	left:51%;
+	z-index: 1;
 }
 #basket {	
 	left:66%; height:10vw; top: 18.3vw;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	border-top-style: hidden;
+	z-index: 1;
+}
+.reserv-info {
+	top:20vw; 
+	left:78vw; 
+	color:#659EA8;
+	font-family: 'Bungee Hairline', cursive;
+	font-size: 0.5vw; 
+	font-weight:bolder
 }
 
 .add_cal {
@@ -225,4 +261,18 @@ body {
 	background-color:transparent;
 	background-color:#93b9bf;
 	color: #fff;
+}
+#video {
+	display: block;
+	border-radius: 20px;
+	
+}
+
+.frame {
+	border-color: #659EA8;
+	transition : 1s;
+}
+.frame:hover {
+	border-color:transparent;
+	border-color: #b4d8de;	
 }

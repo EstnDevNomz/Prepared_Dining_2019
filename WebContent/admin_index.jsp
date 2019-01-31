@@ -10,7 +10,7 @@
 	String lastName = (String) session.getAttribute("lastName");
 	String phone = (String)session.getAttribute("phone");
 	
-	// for Client Puchase List(plist is all list)
+	// for Client Purchase List(plist is all list)
 	Dao dao = Dao.getInstance();	
 	ArrayList<RDto> dto = dao.clientbookList(email);
 	request.setAttribute("cblist", dto);
@@ -66,7 +66,7 @@
 </head>
 
 <body onload="init();$('#inputpay').hide();$('#pay').hide();"style="background-color: #000;">
-			
+		
 <%	//	고객 접속확인
 	if(session.getAttribute("ValidMem") == null){
 %>
@@ -99,37 +99,41 @@
 							
 						</section>
 						<!-- 	Page 2	 -->
-						<section>
+						<section class="order-list">
 						
 										<!--  Cumstomer's Purchase Full List -->
-										
+							
 							<div class="form-group row pull-right" style="position:absolute; top:-45px; width:95%; align-self: center;">
 								<div class="col-xs-5"></div>
 								<div class="col-xs-2">
 									<input class="form-control" id="keyword" onkeyup="$('.table').show();searchFunction()" type="text" size="26">
 								</div>	
 								<div class="col-xs-1">
-									<button id="userButton" class="btn btn-primary" style="width:100%;" type="button" onclick="$('.table').show();searchFunction();" >Search</button>
+									<button id="delete" class="btn btn-primary" 
+											style="width:100%;" type="button" 
+											onclick="$('.search_table').hide();$('.pList').css('display','block');" >											
+											Delete
+									</button>
 								</div>
 							</div>
-							<table class="row form-group" 
+							<table class="search_table row form-group" 
 									style="text-align: center;padding:2%;width:100%; background-color: #659EA8; font-size: 100%;overflow:scroll;">
 								<thead style="padding: 5px;">
 									<tr class="table" style="background-color: #659EA8;color:#ffffff;
 									font-family: 'Bungee Hairline', cursive; font-size: 80%;">
-										<th class="col-xs-1" style="text-align: center;padding:1% 0% 1% 0%;">Index </th>
-										<th class="col-xs-1" style="text-align: center;">Date </th>
-										<th class="col-xs-1" style="text-align: center;">time </th>
-										<th class="col-xs-1" style="text-align: center;">Table</th>
-										<th class="col-xs-3" style="text-align: center;">Ordered Menu</th>
-										<th class="col-xs-2" style="text-align: center;">Email</th>
-										<th class="col-xs-2" style="text-align: center;">Distance</th>
-										<th class="col-xs-1" style="text-align: center;">Cancel</th>
+										<th class="col-xs-1" style="text-align: center;padding:1% 0% 1% 0%;">Payment_date </th>
+										<th class="col-xs-1" style="text-align: center;">E-mail </th>
+										<th class="col-xs-1" style="text-align: center;">phone </th>
+										<th class="col-xs-1" style="text-align: center;">withdraw</th>
+										<th class="col-xs-1" style="text-align: center;">Card</th>
+										<th class="col-xs-1" style="text-align: center;">CDN</th>
+										<th class="col-xs-1" style="text-align: center;">Customer</th>
+										<th class="col-xs-1" style="text-align: center;">installment</th>
 									</tr>
 								</thead>
 								
 								<tbody id="ajaxTable" class="" 
-									style="width:60%;
+									style="width:60%; background-color: #b5cace;
 										font-family: 'Bungee Hairline', cursive; 
 										font-weight:bolder; 
 										padding:5px;
@@ -144,9 +148,7 @@
 							%>	
 										<!--  Administrator's Purchase Full List -->
 							
-										<div class="pList scroll scroll4" id="pList"
-											style="position:absolute; width:98vw; 
-											background-color: #90c5ce;overflow:auto;">
+										<div class="pList scroll scroll4" id="pList">
 											
 											<div class="listSub col-xs-12 label label-info">
 												<label class="col-xs-1">Index</label>
@@ -155,12 +157,12 @@
 												<label class="col-xs-1">Table</label>
 												<label class="col-xs-5">Ordered Menu</label>
 												<label class="col-xs-1">Email</label>
-												<label class="col-xs-1">Distance</label>	
+												<label class="col-xs-1">Price</label>	
 												<label class="col-xs-1">Cancel</label>	
 											</div>
 											
 											<c:forEach var="i" items="${plist}" begin="0"	end="23" varStatus="st">
-												<div class="listContent col-xs-12" style="color: black;">
+												<div class="listContent col-xs-12">
 													<input type="hidden" class="bseq${st.index}" value="${i.b_seq }">
 													<div class="col-xs-1">${i.b_seq }</div>
 													<div class="col-xs-1">${i.reserved_wmy }</div>
@@ -196,8 +198,8 @@
 								<video id="video" poster="" 
 										class="video-js"
 										width="350" height="260" 
-										controls="controls" 
-										style="border-radius: 20px;display: block;" autoplay="autoplay" loop="loop">
+										controls="controls" autoplay
+										loop="loop">
 									<source class="video" src="videos/SlowInfantileCusimanse.mp4" type="video/mp4" />
 								</video>
 								<br/>
@@ -246,9 +248,11 @@
 					</div>
 				</div>	
 				
+								
+				<!-- video control -->
 				<script type="text/javascript" src="script/video.js"></script>
 				
-				<!-- 		Descript sentence		-->
+				<!-- 		Description sentence		-->
 				
 				<div class=""style="position:relative; top:50px;">
 					<span class="col-xs-10">						
@@ -271,11 +275,10 @@
 					</a>
 	
 				</div>
-	
-			<!-- 				menu list 				-->
 
-				<div id="menu" class="level0" style="border-color: #90c5ce;">
-				
+			
+			<!-- 				menu list 				-->
+				<div id="admin_menu" class="level0 frame">
 					<!-- 		for insert menu			 -->
 					<a href="javascript:menuPopupOpen()"  > 
 					<span class="addMenu apptitle" >Add List</span>
@@ -295,14 +298,13 @@
 										onclick="modal_view('${j.menuImg}','${j.menuName}','${j.content}','${j.price }');">
 									</span>
 								</c:forEach>
-				
 						</div>
 					</div>
-				</div>	
+				</div>
 
 		<!--	Bookup Table	   -->
 
-		<div id="reserve" class="zoomTarget level0" data-duration="100" style="border-color: #659EA8">
+		<div id="reserve" class="zoomTarget level0 frame" data-duration="100">
 			<span class="apptitle blur" style="font-size: 1vw; color: #3DA585">Book Up</span><br /> <br /> 
 			<div style="width: 100%; height: 100%;">
 				<img class="tableImg zoomButton "
@@ -349,8 +351,8 @@
 
 	<%@ include file="reservation/bookup.jsp" %>		
 	
-		<div id="book" class="raw zoomTarget level0"  data-duration="100"
-			 style="font-family: 'Bungee Hairline', cursive; font-size: 80%; font-weight:bolder;border-color: #659EA8">
+		<div id="book" class="raw zoomTarget level0 frame"  data-duration="100"
+			 style="font-family: 'Bungee Hairline', cursive; font-size: 80%; font-weight:bolder;">
 			<span style="color:#659EA8;"><%=dow %></span>&nbsp;&nbsp;
 			<span style="color:#659EA8;"><%= yyyy %></span>
 				<br/><br/>
@@ -1007,8 +1009,8 @@
 		<!-- 	Basket	 -->
 		
 		<form id="bookup" action="bookup.do" name="bookup" method="post">
-			<div id="basket" class="apptitle zoomTarget level0"  data-duration="100" style="border-color: #659EA8">
-				<span id="bkTitle" class="blur" style="color: #3DA585"">Basket</span>
+			<div id="basket" class="apptitle zoomTarget level0 frame"  data-duration="100">
+				<span id="bkTitle" class="blur" style="color: #3DA585">Basket</span>
 	<%
 		if (session.getAttribute("ValidMem") == null) {
 
@@ -1043,8 +1045,7 @@
 		
 			<!--  Reservation Information -->
 		
-			<div style="position:absolute; top:20vw; left:78vw; color:#659EA8;
-				 font-family: 'Bungee Hairline', cursive;font-size: 0.5vw; font-weight:bolder;">
+			<div class="reserv-info">
 				 
 				<label style="border:none;">${email}</label>
 				<input type="hidden" id="email" name="email" value="${email}"/>

@@ -59,8 +59,8 @@
 
 </head>
 
-<body onload="init();" style="background-color: #F6F5F4;">
-			
+<body onload="init();" style="background-color: #F5F4F2">
+
 <%
 	//	고객 접속확인
 	
@@ -140,14 +140,14 @@
 	}else{
 		
 	}
+log("filename : "+(String)request.getAttribute("filename"));
 %>						</section>
 						<section>
 							<video id="video" poster="img/post_001.png" 
 									class="video-js"
 									width="350" height="260" 
 									controls="controls" 
-									style="display:block; position:absolute; border-radius: 20px;display: block;left: 78vw;top:-4vw;" 
-									autoplay="autoplay">
+									style="display:block; position:absolute; left: 78vw;top:-4vw;" autoplay>
 								<source class="video" src="${filename }" type="video/mp4" />
 							</video>
 							<br/>
@@ -862,7 +862,7 @@
 		</div>
 		</div>
 			<br /><br />
-			<div class="row" style="position:relative; align-self: center; text-align: center;">
+			<div class="row" style="position:relative; align-self: center; text-align: center;padding:0 2% 0 2%;">
 				<div class="col-xs-12">			
 					<label class="reserve_label col-xs-4" style="background-color:#F6F5F4;border:none;text-align:right; font-size: 0.2vw;"></label>
 					<label class="re_time col-xs-4" style="background-color:#F6F5F4;border:none;font-size: 0.2vw;"></label>
@@ -1035,7 +1035,7 @@
 	
 			<!-- 	Descript sentence	-->
 		<div class="footer raw description" 
-		     style="max-width:100%; width:100%; position:absolute; margin:1% 0 0 2%; align-self:center;
+		     style="max-width:100%; width:100%; position:absolute; margin:1% 0 15% 2%; align-self:center;
 					font-family: 'Bungee Hairline', cursive; ">
 				<label id="footer" class="typingFooter ">Welcome to my Store!! ${firstName} ${lastName} Would you like to select menu?</label>
 

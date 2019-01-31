@@ -57,10 +57,36 @@
 %>
 <%
 	if(session.getAttribute("ValidMem") != null && !email.equals(admin)) {
+
+		//Bring back phone number for send massage to Customer
+		dto.setRegJointime((new Timestamp(System.currentTimeMillis())));
+		phone = dao.confirmPhone(dto.getCustomerEmail()).getCustomerPhone();
+		
+		// It will be re-update every time any user connects
+		dao.updateDistance(dist, email);
+		
+		/* 
+		* Bring back location value for comparison login user location with payment user location
+		* for security.
+		*/
+		String userDistance = null;
+		userDistance = dao.confirmDistance(dto.getCustomerEmail()).getCustomerDistanceInfo();	
+		
+		// Define phone and distance values as a session
+		session.setAttribute("phone", phone);
+		session.setAttribute("userDistance", userDistance);
+		
+		log("phone : " + phone);
+		log("distance : " + dist);
+		log("userDistance : " + userDistance);	
 %>
+
 			<script lang="Javascript">
 			var email = '<%=email%>';
 			alert('Connect into ' + email);
+			
+			alert('Your location information has been stored to the Database(' + <%=userDistance %> + ')and session');
+			
 			opener.parent.location.replace('http://localhost:8181/Project_OpenDining_L.H-S/index.do');
 			self.close();
 			</script>
@@ -75,43 +101,9 @@
 <%
 	}else{
 		
-	}
-%>
-			
-<%
-	//Bring back phone number for send massage to Customer
-	dto.setRegJointime((new Timestamp(System.currentTimeMillis())));
-	phone = dao.confirmPhone(dto.getCustomerEmail()).getCustomerPhone();
-	
-	// It will be re-update every time any user connects
-	dao.updateDistance(dist, email);
-	
-	/* 
-	* Bring back location value for comparison login user location with payment user location
-	* for security.
-	*/
-	String userDistance = null;
-	userDistance = dao.confirmDistance(dto.getCustomerEmail()).getCustomerDistanceInfo();	
-	
-	// Define phone and distance values as a session
-	session.setAttribute("phone", phone);
-	session.setAttribute("userDistance", userDistance);
-%>
-<script>
-	alert('Your location information has been stored to the Database(' + <%=userDistance %> + ')and session');
-</script>
-<%	
-	
-	
-	log("phone : " + phone);
-	log("distance : " + dist);
-	log("userDistance : " + userDistance);		
-	
-	
-	
-			
-		}
-	}
+	}	
+}
+}
 %>
 
 

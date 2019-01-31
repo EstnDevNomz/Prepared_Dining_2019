@@ -19,7 +19,6 @@
 						cell.innerHTML = '<br />' + result[i][j].value + '<br />';
 						
 					}
-					cell.innerHTML = "<a href='' id='' class='cs glyphicon glyphicon-minus-sign' style='text-decoration:none' onclick='(function(e){e.preventDefault();})(event)'></a>";
 				}
 			}
 		}

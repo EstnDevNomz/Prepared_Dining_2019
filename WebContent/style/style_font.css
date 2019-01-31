@@ -20,7 +20,7 @@ body {
 }
 .typingFooter {
 	font-size: 1.5vw;
-	color:gray;
+	color:#1657c2;
 	white-space: nowrap;
 	overflow: hidden;
 	border-right: .10em solid black;
@@ -185,10 +185,13 @@ body {
 	
 	overflow:auto;
 }
+/*예약주문이력삭제*/
 .pList {
+	display:none;
+	width:98vw; height:40vw;
+	background-color: #5E959F;
+	overflow:auto;
 	position:absolute; 
-	width:40vw;height:10vw; top:33vw;
-	background-color: #feeba8;
 	font-family: 'Bungee Hairline', cursive; 
 	overflow:auto;
 }
@@ -196,15 +199,16 @@ body {
 	background-color:#5E959F;
 	text-align: center;
 	padding: 1% 0% 0.3% 0%;
-	border-bottom: 5px solid white;
+	border-bottom: 5px solid #5E959F;
 	font-size: 0.85vw;
 }
 .listContent {
+	background-color:#AEC4C8;
 	text-align: center;
 	padding: 1% 0% 1% 0%;
-	border-bottom: 5px solid white;
+	border-bottom: 5px solid #5E959F;
 	font-size: 0.8vw;
-	color: black;
+	color: #657174;
 	font-weight: bolder;
 }
 .booklist {

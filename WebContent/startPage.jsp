@@ -31,7 +31,7 @@
 	border: none;
 	font-weight: bolder;
 	left: 34%;
-	top: 35%;
+	top: 40%;
 	transition-duration: 1s;
 }
 .subject:hover {

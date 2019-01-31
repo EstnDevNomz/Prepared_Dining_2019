@@ -1,3 +1,35 @@
+/* Hide all view for search*/
+$('#keyword').mouseenter(function() {
+	$('.search_table').show();
+	$('.level0').hide();
+	$('#logout').hide();
+	$('#modify').hide();
+	$('.pList').hide();
+	$('.reserv-info').hide();
+	$('.admin_footer').text('When you move the cursor down, all menus are visible again.');
+});
+/* Hide search view for all menus*/
+$('.admin_footer').mouseenter(function() {
+	$('.search_table').hide();
+	$('.level0').show();
+	$('#logout').show();
+	$('#modify').show();
+	$('.pList').hide();
+	$('.reserv-info').show();
+	$('.admin_footer').text('');
+});
+$('#delete').mouseenter(function() {
+	$('.pList').css('display', 'block');
+	$('.pList').show();
+	$('.search_table').hide();
+	$('.level0').hide();
+	$('#logout').hide();
+	$('#modify').hide();
+	$('.reserv-info').hide();
+	$('.admin_footer').text('When you move the cursor down, all menus are visible again.');
+});
+
+/* Automatic Manuals*/
 $('#login').mouseenter(function() {
 	$('#footer').text('Click to open the login window.');
 });
@@ -115,7 +147,7 @@ $('.t8').mouseleave(function() {
 $('.t9').click(function() {
 	$('.footer').text('You have selected table No 1. Please select date.');
 });
-$('..t9').mouseleave(function() {
+$('.t9').mouseleave(function() {
 	$('#footer').text('');
 });
 $('#today').click(function() {

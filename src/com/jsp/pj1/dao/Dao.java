@@ -856,9 +856,9 @@ public class Dao {
 			
 			try {
 				conn = getConnection();
-				String query = "SELECT * FROM videos WHERE filename LIKE ?";
+				String query = "SELECT * FROM videos WHERE filename LIKE ? ORDER BY vid_seq ASC";
 				pstmt = conn.prepareStatement(query);
-				pstmt.setString(1, "%video%");
+				pstmt.setString(1, "%\\%");
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
