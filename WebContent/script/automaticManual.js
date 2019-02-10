@@ -96,60 +96,7 @@ $('#book').mouseenter(function() {
 $('#book').mouseleave(function() {
 	$('#footer').text('');
 });
-$('.t1').click(function() {
-	$('#footer').text('You have selected table No 1. Please select date.');
-});
-$('.t1').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t2').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t2').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t3').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t3').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t4').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t4').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t5').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t5').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t6').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t6').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t7').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t7').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t8').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t8').mouseleave(function() {
-	$('#footer').text('');
-});
-$('.t9').click(function() {
-	$('.footer').text('You have selected table No 1. Please select date.');
-});
-$('.t9').mouseleave(function() {
-	$('#footer').text('');
-});
+
 $('#today').click(function() {
 	$('#footer').text('You chose today. Please select your preferred time.');
 });

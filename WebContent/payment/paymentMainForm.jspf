@@ -8,8 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../script/init.js"></script>
-	
+	<script type="text/javascript" src="../script/init.js"></script>	
 <title></title>
 </head>
 <body >
@@ -119,8 +118,8 @@
 							<div>
 								<p>
 									<label class="col-xs-6" style="margin-bottom:7px;">Book at</label>
-									<label class="re_time col-xs-3" style="text-align: right;margin-bottom:7px;">time</label>
-									<label class="re_day col-xs-3" style="text-align: right;margin-bottom:7px;">day</label>
+									<label class="re_time col-xs-3" style="font-size:0.7vw; text-align: right;margin-bottom:7px;">time</label>
+									<label class="re_day col-xs-3" style="font-size:0.7vw; text-align: right;margin-bottom:7px;">day</label>
 								</p>
 							</div>	
 							<div>

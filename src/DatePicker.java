@@ -348,7 +348,7 @@ public class DatePicker {
 		  		int m_str = 20; // start min
 		  		int h = 0;
 		  		int m = 0;
-		  		int rn = 125; //reservation number
+		  		int rn = 10; //reservation number
 		  		String pmam = "AM";
 		  		
 		  		String[] hours = new String[140];	// array hours

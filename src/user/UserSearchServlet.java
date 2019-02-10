@@ -86,7 +86,7 @@ public class UserSearchServlet extends HttpServlet {
 		return result;
 	}
 
-	//제이슨으로 변환
+	//Convert type of JSON
 	public String getJSON(String keyword) {
 		
 		if(keyword == null) keyword = "";
@@ -98,6 +98,7 @@ public class UserSearchServlet extends HttpServlet {
 		ArrayList<PGHistoyDto> userList = ajaxDAO.search(keyword);
 		System.out.println(userList);
 		
+		//Serialization
 		for(int i=0; i < userList.size(); i++) {
 			result.append("[{\"value\": \"" + userList.get(i).getPaymentDate() + "\"},");
 			result.append("{\"value\": \"" + userList.get(i).getEmail() + "\"},");

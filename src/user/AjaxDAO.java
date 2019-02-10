@@ -19,7 +19,7 @@ public class AjaxDAO {
 		try {
 			String dbURL = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String dbID = "exorsa";
-			String dbPW = "tldhstks12";
+			String dbPW = "m1234";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPW);
 			
@@ -28,13 +28,20 @@ public class AjaxDAO {
 		}	
 	}
 	
-	public ArrayList<PGHistoyDto> search(String keyword) {
-		String query = "SELECT * FROM creditcardcompany WHERE payment_date||creditcardfirm||cdn||customer_name||email||phone||withdraw LIKE ? ORDER BY payment_date DESC";
+	public ArrayList<PGHistoyDto> search(String keyword) {	
+	
+		String query = "SELECT * FROM creditcardcompany "
+				+ "WHERE payment_date||creditcardfirm||cdn||"
+				+ "customer_name||email||phone||withdraw LIKE ? "
+				+ "ORDER BY payment_date DESC";
+				// could not search for payment_date by wild card , which is type of the Timestamp.
+		
 		ArrayList<PGHistoyDto> userList = new ArrayList<PGHistoyDto>();
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, "%" + keyword + "%"); //와일드카드 : 특정한 요소가 포함된 모든 요소가 출력
+			//Wild card :특정한 요소가 포함된 모든 요소가 출력
+			pstmt.setString(1, "%" + keyword + "%"); 
 			rs = pstmt.executeQuery();
 			System.out.println(rs);
 			
@@ -61,20 +68,19 @@ public class AjaxDAO {
 	}
 	
 	public ArrayList<URDto> cancel(String bseq) {
-		System.out.println("cancel()문진입");System.out.println("bseq : " + bseq);
+		System.out.println("cancel()");System.out.println("bseq : " + bseq);
 		String query = "DELETE bookup WHERE b_seq = TO_DATE(?, 'yymmddhh24miss')";
 		ArrayList<URDto> userList = new ArrayList<URDto>();
 		
 		try {
-			System.out.println("try문 집입");
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, bseq); //와일드카드 : 특정한 요소가 포함된 모든 요소가 출력
+			pstmt.setString(1, bseq); //Wild card : 특정한 요소가 포함된 모든 요소가 출력
 			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
 			System.out.println(rs);
 			
 			while (rs.next()) {
-				System.out.println("while문 집입");
+				System.out.println("while문 진입");
 				URDto dto = new URDto();
 				dto.setB_seq(rs.getTimestamp(1));
 				dto.setT_index(rs.getString(2));

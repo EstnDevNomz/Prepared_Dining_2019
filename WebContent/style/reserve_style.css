@@ -1,14 +1,31 @@
-
+@media screen and (min-width:0) and (max-width: 500px) {
+	.time_nomal {
+		font-size: 46%;	
+		width:28%; height:11%; 
+		
+	}
+	.time_admin{
+		font-size: 46%;		
+	}
+}
+@media screen and (min-width:501px) {
+	.time_nomal {
+		font-size: 36%;
+		width:22%; height:14%; 
+		padding:0.2%;
+	}
+	.time_admin{
+		font-size: 56%;		
+	}
+}
 .time_nomal {
-	width:20%; height:10%; 
-	padding:1%;
 	border:0; 
 	outline:0;
 	position:relative;
-	font-size: 56%;
 	color:white; 
 	background-color: #d3d9dc; 
 	border-radius: 2.5px; 
+	text-align:center;
 	text-decoration: none;
 	font-family: 'Bungee Hairline', cursive;
 	font-weight:bolder;	
@@ -16,12 +33,11 @@
 }
 
 .time_admin{
-	width:22%; height:10%; 
+	width:28%; height:11%; 
 	padding:1%;
 	border:0; 
 	outline:0;
 	position:relative;
-	font-size: 56%;
 	color: #b5ced2; 
 	border: 1px solid #5E959F; 
 	background-color:#000;

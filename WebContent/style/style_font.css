@@ -1,4 +1,4 @@
-/*���� Ÿ����ȿ��*/
+/*占쏙옙占쏙옙 타占쏙옙占쏙옙효占쏙옙*/
 @-webkit-keyframes typing {
     from {
         width: 0
@@ -15,20 +15,7 @@
         border-color: black
     }
 }
-body {
-    font-family: 'Delius Unicase', cursive
-}
-.typingFooter {
-	font-size: 1.5vw;
-	color:#1657c2;
-	white-space: nowrap;
-	overflow: hidden;
-	border-right: .10em solid black;
-	-webkit-animation: typing 2s steps(36, end), blink-caret 1s step-end ;
-	-webkit-animation-delay: 1s;
-	-webkit-animation-fill-mode: both;
-	-moz-animation-delay: 1s;
-}
+
 .admin_footer {
 	position:relative; 
 	color: #3A9C7C;
@@ -42,8 +29,6 @@ body {
 	-webkit-animation-fill-mode: both;
 	-moz-animation-delay: 1s;	
 }
-
-
 
 .blur{
 	background:whtie;
@@ -73,11 +58,7 @@ body {
 	font-family: 'Bungee Hairline', cursive;
 	text-decoration: none;
 }
-.login {
-	text-align: center; 
-	font-size: 1vw; 
-	position:absolute; top:11vw; left:35vw;
-}
+
 .signin {
 	font-size: 200%;
 	font-weight: bold;
@@ -98,7 +79,7 @@ body {
 }
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 .description {
-	font-family: ‘Noto Sans KR’ ;
+	font-family: �쁍oto Sans KR�� ;
 	font-size:190%;
 	font-weight: bold;
 	padding-top: 1%;
@@ -120,72 +101,23 @@ body {
 	font-weight:bolder;
 	
 }
-.dow {
-	height: 80px; 
-	text-align: center; 
-	line-height: 80px;
-	font-family: 'Bungee Hairline', cursive; 
-	font-size: 200%; 
-	font-weight:bolder; 
-	
-}
-.date_f {
-	line-height:1.5vw;
-	padding:4px;
-	font-size: 0.4vw;
-	font-family: 'Bungee Hairline', cursive;
-	font-weight: bolder;
-	color: #aaaaaa;
-	padding: 0.1vw;
-}
-.admin_date_f {
-	line-height:1.5vw;
-	font-size: 0.4vw;
-	font-family: 'Bungee Hairline', cursive;
-	font-weight: bolder;
-	color: #3D8C7C;
-	padding: 0.1vw;
-}
 
 
-.week_f {
-	text-align:center;
-	font-size: 0.4vw;
-	color: #ff8040;
-	font-family: 'Bungee Hairline', cursive;
-	font-weight: bolder;
-	
-}
 .write_font{
 	font-family: 'Bungee Hairline', cursive;
 	font-weight: bolder;	
 }
 .writeImg {
-	font-family: ‘Noto Sans KR’ ;
+	font-family: �쁍oto Sans KR�� ;
 	font-weight: lighter;	
 }
 .loginstyle {
 	font-family: 'Bungee Hairline', cursive;
 	font-weight: bolder;	
 }
-#locationinformation{
-	font-size:0.8vw; 
-	position:absolute; 
-	top:30vw;left: 78vw;
-	font-family: 'Bungee Hairline', cursive; 
-	font-weight:bolder;
-	color: #B6AEA5;
-	text-decoration: none;
-}
-.cpList {
-	position:absolute; 
-	height:10vw; top:33vw;
-	background-color: #feeba8;
-	font-family: 'Bungee Hairline', cursive;
-	
-	overflow:auto;
-}
-/*예약주문이력삭제*/
+
+
+/*�삁�빟二쇰Ц�씠�젰�궘�젣*/
 .pList {
 	display:none;
 	width:98vw; height:40vw;

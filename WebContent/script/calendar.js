@@ -10,6 +10,9 @@
 			
 
 		});
+		$('.time').click(function() {
+			$('.re-label').css('display', 'block');
+		});
 		$('#today').click(function() {
 			// reset color
 			$('.date_f').css('background-color', '#F6F5F4');

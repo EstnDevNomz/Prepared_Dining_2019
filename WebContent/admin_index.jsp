@@ -44,11 +44,14 @@
 <script type="text/javascript" src="http://www.macosxsupport.com/jquery.zoomooz.min.js"></script>
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet" />
 <script src="http://vjs.zencdn.net/c/video.js"></script>
+
 <!-- 			Inside Link			 	-->
 <link rel="stylesheet" href="style/style_shape.css" type="text/css"	media="screen" />
 <link rel="stylesheet" href="style/style_font.css" type="text/css"	media="screen" />
 <link rel="stylesheet"  href="style/payment_style.css" type="text/css"	media="screen"></link>
 <link rel="stylesheet"  href="style/reserve_style.css" type="text/css"	media="screen"></link>
+<link rel="stylesheet"  href="style/modal.css" type="text/css"	media="screen"></link>
+
 <script type="text/javascript" src="script/modal.js"></script>
 <script type="text/javascript" src="script/popup.js"></script>
 <script type="text/JavaScript" src="script/menuContent.js"></script>
@@ -103,10 +106,15 @@
 						
 										<!--  Cumstomer's Purchase Full List -->
 							
-							<div class="form-group row pull-right" style="position:absolute; top:-45px; width:95%; align-self: center;">
+							<div class="form-group row pull-right" 
+								style="position:absolute; top:-45px; width:95%; align-self: center;">
 								<div class="col-xs-5"></div>
 								<div class="col-xs-2">
-									<input class="form-control" id="keyword" onkeyup="$('.table').show();searchFunction()" type="text" size="26">
+									<input class="form-control" 
+											id="keyword" 
+											onkeyup="$('.table').show();searchFunction()" 
+											type="text" 
+											size="26">
 								</div>	
 								<div class="col-xs-1">
 									<button id="delete" class="btn btn-primary" 
@@ -116,12 +124,11 @@
 									</button>
 								</div>
 							</div>
-							<table class="search_table row form-group" 
-									style="text-align: center;padding:2%;width:100%; background-color: #659EA8; font-size: 100%;overflow:scroll;">
+							<table class="search_table row form-group">
 								<thead style="padding: 5px;">
-									<tr class="table" style="background-color: #659EA8;color:#ffffff;
-									font-family: 'Bungee Hairline', cursive; font-size: 80%;">
-										<th class="col-xs-1" style="text-align: center;padding:1% 0% 1% 0%;">Payment_date </th>
+									<tr class="table">
+										<th class="col-xs-1" style="text-align: center;
+											padding:1% 0% 1% 0%;">Payment_date </th>
 										<th class="col-xs-1" style="text-align: center;">E-mail </th>
 										<th class="col-xs-1" style="text-align: center;">phone </th>
 										<th class="col-xs-1" style="text-align: center;">withdraw</th>
@@ -132,13 +139,7 @@
 									</tr>
 								</thead>
 								
-								<tbody id="ajaxTable" class="" 
-									style="width:60%; background-color: #b5cace;
-										font-family: 'Bungee Hairline', cursive; 
-										font-weight:bolder; 
-										padding:5px;
-										font-size: 80%;">
-								</tbody>
+								<tbody id="ajaxTable"></tbody>
 								
 							</table>
 							<%
@@ -161,7 +162,7 @@
 												<label class="col-xs-1">Cancel</label>	
 											</div>
 											
-											<c:forEach var="i" items="${plist}" begin="0"	end="23" varStatus="st">
+											<c:forEach var="i" items="${plist}" begin="0" end="23" varStatus="st">
 												<div class="listContent col-xs-12">
 													<input type="hidden" class="bseq${st.index}" value="${i.b_seq }">
 													<div class="col-xs-1">${i.b_seq }</div>
@@ -193,7 +194,7 @@
 						</section>	
 						<!-- 	Page 3	 -->
 						<section>
-							<article style="left: 80%;top: 5%;">
+							<article>
 								<!-- Video Section -->
 								<video id="video" poster="" 
 										class="video-js"
@@ -203,21 +204,20 @@
 									<source class="video" src="videos/SlowInfantileCusimanse.mp4" type="video/mp4" />
 								</video>
 								<br/>
-								<div class="vidOps" style="display:none; position:relative;left:6%;">
+								<div class="vidOps">
 									<button type="button" id="stop" 
-											class="glyphicon glyphicon-stop" 
-											style="width: 40px; height:40px; border: none; border-radius:30%;">
+											class="glyphicon glyphicon-stop" >
 									</button>
 									<button type="button" id="play" 
-											class="glyphicon glyphicon-pause" 
-											style="width: 40px; height:40px; border: none; border-radius:30%;">
+											class="glyphicon glyphicon-pause" >
 									</button>
 									<button type="button" onclick="change();insertVideo()"
-											class="upload glyphicon glyphicon-eject" 
-											style="width: 40px; height:40px; border: none; border-radius:30%;">
+											class="upload glyphicon glyphicon-eject" >
 									</button>
+									<br/><br/>
+									<input type="file" class="filename" src="" size="20px"/>
 								</div>
-								<input type="file" class="filename" src="" size="20px" style="position:absolute; margin:1%; left:3%; display: none;"/>
+								
 							</article>
 
 						<!--				location information			 -->
@@ -238,10 +238,13 @@
 						    <br/><br/>
 						   	
 						     Distance:<br/> 
-						     <label class="distance" style="background-color:#000;color:#5E959F;font-size:5vw; border: none; font-weight:bolder;position:absolute; right:9vw;;" >distance</label>
-						      <input type="hidden" id="distance" name="distance"
-								      readonly="readonly">
-							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
+						     <label class="distance" >distance</label>
+						      <input type="hidden" 
+								     id="distance" 
+								     name="distance"
+								     readonly="readonly">
+							<input type="hidden" id="a" value="">
+							<input type="hidden" id="b" value="">
 						  </div>  
 								
 						</section>
@@ -285,19 +288,19 @@
 				</a>
 	 					<!-- 			array List Image  : sign out				-->
 					<div>				
-						<div  style="align-self:center; padding:4%; margin-top: 5%">
-								<c:forEach var="j" items="${list}" begin="0" varStatus="status"	end="23">
-									<span  style="padding: 0.3%;line-height: 1.3em;">
-									<input id="" type="image" 
-										src="img/${j.menuImg}" 
-										class="listImg" alt=""	
-										style="border-radius: 8%; 
-										width: 15%;" 
-										data-toggle="modal" 
-										data-target="#myModal"
-										onclick="modal_view('${j.menuImg}','${j.menuName}','${j.content}','${j.price }');">
-									</span>
-								</c:forEach>
+						<div style="align-self:center; padding:4%; margin-top: 5%">
+							<c:forEach var="j" items="${list}" begin="0" varStatus="status"	end="23">
+								<span  style="padding: 0.3%;line-height: 1.3em;">
+								<input id="" type="image" 
+									src="img/${j.menuImg}" 
+									class="listImg" alt=""	
+									style="border-radius: 8%; 
+									width: 15%;" 
+									data-toggle="modal" 
+									data-target="#myModal"
+									onclick="modal_view('${j.menuImg}','${j.menuName}','${j.content}','${j.price }');">
+								</span>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
@@ -313,31 +316,40 @@
 				
 				<!-- 	no.1 Table book up 	-->
 						
-						<input type="button" name="t_index" class="table tb1 t1 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb1 t1 zoomButton" 
 								data-type="next" data-root=".demo" value="1" onclick="">					
 		
-						<input type="button" name="t_index" class="table tb1 t2 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb1 t2 zoomButton" 
 								data-type="next" data-root=".demo" value="2">
 	
-						<input type="button" name="t_index" class="table tb1 t3 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb1 t3 zoomButton" 
 								data-type="next" data-root=".demo" value="3">
 	
-						<input type="button" name="t_index" class="table tb1 t4 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb1 t4 zoomButton" 
 								data-type="next" data-root=".demo" value="4">
 	
-						<input type="button" name="t_index" class="table tb2 t5 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb2 t5 zoomButton" 
 								data-type="next" data-root=".demo" value="5">
 	
-						<input type="button" name="t_index" class="table tb2 t6 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb2 t6 zoomButton" 
 								data-type="next" data-root=".demo" value="6">
 	
-						<input type="button" name="t_index" class="table tb2 t7 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb2 t7 zoomButton" 
 								data-type="next" data-root=".demo" value="7">
 	
-						<input type="button" name="t_index" class="table tb3 t8 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb3 t8 zoomButton" 
 								data-type="next" data-root=".demo" value="8">
 	
-						<input type="button" name="t_index" class="table tb3 t9 zoomButton" 
+						<input type="button" name="t_index" 
+								class="table tb3 t9 zoomButton" 
 								data-type="next" data-root=".demo" value="9">
 																								
 			</div>
@@ -359,23 +371,53 @@
 
 				<!-- 	Day of weeks	 -->
 			<div class="date">
-			    <div class="col-xs-2 week_f"><%=EE[0] %>
-		    		<br/><span id="today" class="today admin_date_f admin_date_sh"><%=af[0] %></span>
+			    <div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[0] %></div>			    
+		    		<br/>
+		    		<div id="today" 
+			    		class="today admin_date_f admin_date_sh">
+			    		<%=af[0] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[1] %>
-		    		<br/><span id="manana" class="manana admin_date_f admin_date_sh""><%=af[1] %></span>
+		    	<div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[1] %></div>			    
+		    		<br/>
+		    		<div id="manana" 
+			    		class="manana admin_date_f admin_date_sh"">
+			    		<%=af[1] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[2] %>
-		    		<br/><span id="third" class="third admin_date_f admin_date_sh""><%=af[2] %></span>
+		    	<div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[2] %></div>			    		    	
+		    		<br/>
+		    		<div id="third" 
+			    		class="third admin_date_f admin_date_sh"">
+			    		<%=af[2] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[3] %>
-		    		<br/><span id="fourth" class="fourth admin_date_f admin_date_sh""><%=af[3] %></span>
+		    	<div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[3] %></div>			    		    	
+		    		<br/>
+		    		<div id="fourth" 
+			    		class="fourth admin_date_f admin_date_sh"">
+			    		<%=af[3] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[4] %>
-		    		<br/><span id="fifth" class="fifth admin_date_f admin_date_sh""><%=af[4] %></span>
+		    	<div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[4] %></div>		
+			    	<br />	    		    	
+		    		<div id="fifth" 
+			    		class="fifth admin_date_f admin_date_sh"">
+			    		<%=af[4] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[5] %>
-		    		<br/><span id="sixth" class="sixth admin_date_f admin_date_sh""><%=af[5] %></span>
+		    	<div class="col-xs-1 week_f">
+			    	<div class="admin_dow_f"><%=EE[5] %></div>			    		    	
+		    		<br/>
+		    		<div id="sixth" 
+			    		class="sixth admin_date_f admin_date_sh"">
+			    		<%=af[5] %>
+		    		</div>
 		    	</div>
 		    </div>	
 		    	<br/>		    	
@@ -386,6 +428,62 @@
 		} else if(email.equals(admin)){
 	%>
 			<!-- 	TimePicker View for Administor		-->
+						<!-- 	Add Canlendar	-->
+				<div>
+					<button type="button" id="" class="a1 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t1').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>
+				<div>
+					<button type="button" id="" class="a2 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t2').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>	
+				<div>
+					<button type="button" id="" class="a3 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t3').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>
+				<div>
+					<button type="button" id="" class="a4 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t4').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>	
+				<div>
+					<button type="button" id="" class="a5 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t5').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>									
+				<div>
+					<button type="button" id="" class="a6 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t6').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>				
+				<div>
+					<button type="button" id="" class="a7 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t7').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>		
+				<div>
+					<button type="button" id="" class="a8 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t8').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>																
+				<div>
+					<button type="button" id="" class="a9 add_cal" style="display:none;"
+							onclick="javascript:addCalendar($('.t9').val(), $('.re_day').val())">
+						+
+					</button>
+				</div>	
+	<div class="timePicker">
 		<div class="table_1" style="display:none;">	
 		
 <%-- 			<c:forEach var="item" begin="0" items="${fn:split('today|manana|third|fourth|fifth|sixth', '|') }" end="8" varStatus="status">
@@ -459,15 +557,7 @@
 							onclick="deleteCalendar($('.t1').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>	
-										
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t1').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>										
 		</div>
 		
 		<!-- Calendar for Table No.2 -->
@@ -525,15 +615,7 @@
 							onclick="deleteCalendar($('.t2').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t2').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>
 		
 		<div class="table_3" style="display:none;">
@@ -591,14 +673,7 @@
 							onclick="deleteCalendar($('.t3').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t3').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>	
 		
 		<div class="table_4" style="display:none;">
@@ -656,15 +731,7 @@
 							onclick="deleteCalendar($('.t4').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t4').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>	
 		
 		<div class="table_5" style="display:none;">
@@ -722,15 +789,7 @@
 							onclick="deleteCalendar($('.t5').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t5').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>	
 		
 		<div class="table_6" style="display:none;">
@@ -788,15 +847,7 @@
 							onclick="deleteCalendar($('.t6').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t6').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>
 			
 		<div class="table_7" style="display:none;">
@@ -854,15 +905,7 @@
 							onclick="deleteCalendar($('.t7').val(), '${j.calendarTime}', 'sixth')">	
 					</span>			
 				</c:forEach>			
-			</div>		  
-			
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t7').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
+			</div>
 		</div>	
 
 		<div class="table_8" style="display:none;">
@@ -921,14 +964,6 @@
 					</span>			
 				</c:forEach>			
 			</div>		  
-		
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t8').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
 		</div>	
 		
 		<div class="table_9" style="display:none;">
@@ -987,15 +1022,9 @@
 					</span>			
 				</c:forEach>			
 			</div>
-						
-				<!-- 	Add Canlendar	-->
-				<div>
-					<button type="button" id="" class="add_cal"
-							onclick="javascript:addCalendar($('.t9').val(), $('.re_day').val())">
-						+
-					</button>
-				</div>
 		</div>
+	</div>
+
 		<!-- temp cell -->
 		<input type="hidden" class="re_day" value="">		
 		<%
@@ -1043,39 +1072,31 @@
 				</div>
 			</div>
 		
-			<!--  Reservation Information -->
-		
-			<div class="reserv-info">
-				 
-				<label style="border:none;">${email}</label>
-				<input type="hidden" id="email" name="email" value="${email}"/>
-				<br/>
-				<label class="t_num" style="border:none;"></label>
-				<input type="hidden" name="t_index" class="t_num" value=""/>
-				       <br/>
-				<label style=" border:none;"><%=dow %> <%=year %></label>
-				<input type="hidden" name="reserved_wmy" 
-					   value="<%=dow %> <%=year %>" />
-				       <br/>
-				<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
-				<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
-				       <br/>
-				<label class="reserve_time" style="color: gray"></label>
-				<input type="hidden" name="reserved_time" class="reserve_time" value="" />
-				       <br/>       
-				       
-				<c:forEach var="j" begin="0" varStatus="st" end="5">
-						<label class="menuname${st.index}" style="border:none; color: #33B88C;" ></label>
-						<input type="hidden" name="menuname${st.index}" 
-							   class="menuname${st.index}" value=" " >
-						<br/>
-				</c:forEach>
-
-				  
-				<!-- total menu -->
-					<input type="hidden" name="menuname" class="menuname" value="">
-					
-			</div>
+				<div class="reserv-info">					 
+					<input type="hidden" id="email" name="email" value="${email}"/>
+					<label class="t_num" style="border:none;"></label>
+					<input type="hidden" name="t_index" class="t_num" value=""/>
+					       <br/>
+					<label style=" border:none;"><%=dow %> <%=year %></label>
+					<input type="hidden" name="reserved_wmy" 
+						   value="<%=dow %> <%=year %>" />
+					<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
+					<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
+					       <br/>
+					<label class="reserve_time" style="color: gray"></label>
+					<input type="hidden" name="reserved_time" class="reserve_time" value="" />
+					       <br/>       
+					<label class="withdraw"></label>
+					<c:forEach var="j" begin="0" varStatus="st" end="5">
+							<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
+							<input type="hidden" name="menuname${st.index}" 
+								   class="menuname${st.index}" value="" >
+							<br/>
+					</c:forEach>
+					  
+					<!-- total menu -->
+						<input type="hidden" name="menuname" class="menuname" value="">						
+				</div>
 			
 				<!-- Hidden information for submit -->
 				<input type="hidden" name="distance" id="dist" class="dist"value="">

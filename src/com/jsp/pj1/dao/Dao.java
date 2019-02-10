@@ -277,7 +277,9 @@ public class Dao {
 		
 		try {
 			conn = getConnection();
-			conn.setAutoCommit(false);	//Change autoCommit function manually.
+			/* Transaction
+			 * Change autoCommit function manually. */
+			conn.setAutoCommit(false);	
 			System.out.println("getConnection");			
 			pstmt = conn.prepareStatement(query1);
 			System.out.println("prepareStatement for query values");	

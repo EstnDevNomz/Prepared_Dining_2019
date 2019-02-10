@@ -45,6 +45,7 @@
 	<link rel="stylesheet" href="style/style_font.css" type="text/css"	media="screen" />
 	<link rel="stylesheet"  href="style/payment_style.css" type="text/css"	media="screen"></link>
 	<link rel="stylesheet"  href="style/reserve_style.css" type="text/css"	media="screen"></link>
+	<link rel="stylesheet"  href="style/modal.css" type="text/css"	media="screen"></link>
 	<script type="text/javascript" src="script/modal.js"></script>
 	<script type="text/javascript" src="script/popup.js"></script>
 	<script type="text/JavaScript" src="script/menuContent.js"></script>
@@ -59,7 +60,7 @@
 
 </head>
 
-<body onload="init();" style="background-color: #F5F4F2">
+<body class="c-body" onload="init();">
 
 <%
 	//	고객 접속확인
@@ -99,7 +100,7 @@
 		
 	} else if(!email.equals(admin)){
 %>
-							<div class="cpList scroll scroll4" id="pList" style="width: 98.5vw;">
+							<div class="cpList scroll scroll4" id="pList">
 										
 										<!-- middle title -->
 									<div class="col-xs-12 label label-default"
@@ -140,21 +141,21 @@
 	}else{
 		
 	}
-log("filename : "+(String)request.getAttribute("filename"));
+	log("filename : "+(String)request.getAttribute("filename"));
 %>						</section>
 						<section>
 							<video id="video" poster="img/post_001.png" 
 									class="video-js"
 									width="350" height="260" 
 									controls="controls" 
-									style="display:block; position:absolute; left: 78vw;top:-4vw;" autoplay>
+									autoplay>
 								<source class="video" src="${filename }" type="video/mp4" />
 							</video>
 							<br/>
 																			
 						  <!--				location information			 -->
 							
-						  <div id="locationinformation" class="location" style="width:20vw; text-align: right;"> 
+						  <div id="locationinformation" class="location"> 
 							<!-- get Distance method -->
 							<script type="text/javascript" src="script/calcDistance.js"></script>
 						     <label style="width:20vw;">My location:</label> <br/> 
@@ -169,8 +170,20 @@ log("filename : "+(String)request.getAttribute("filename"));
 						      </a>
 						    <br/><br/>
 						   	
-						     Distance:<br/> 
-						     <label class="distance" style="position:absolute; background-color:#F6F5F4;color:#FACCA8;font-size:5vw; border: none; font-weight:bolder;right:9vw;" >distance</label>
+						     Distance:
+						     <br/> 
+						     <label class="distance" 
+						     		style="position:absolute; 
+								     		background-color:#F6F5F4;
+								     		color:#FACCA8;
+								     		font-size:5vw; 
+								     		border: none; 
+								     		font-weight:bolder;
+								     		right:9vw;" >
+						     		
+						     		distance
+						     		
+						     </label>
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
 							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
@@ -221,7 +234,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 			<!-- menu list -->
 			
 				<div id="menu" class="level0 blur" >
-					<span class="apptitle" style="font-size: 1vw"> Menu</span>
+					<span class="apptitle" style="font-size: 1vw;"> Menu</span>
 					
 	 					<!-- 			array List Image  : Sign In				-->
 					<div>				
@@ -288,33 +301,56 @@ log("filename : "+(String)request.getAttribute("filename"));
 	<%@ include file="reservation/bookup.jsp" %>		
 	
 		<div id="book" class="raw zoomTarget level0" 
-			 style="font-family: 'Bungee Hairline', cursive; font-size: 0.5vw; font-weight:bolder;">
+			 style="font-family: 'Bungee Hairline', cursive; font-weight:bolder;">
 			<span style="color: black;"><%=dow %></span>&nbsp;&nbsp;
-			<span style="color:#cfcfcf"><%= yyyy %></span>
-				<br/><br/>
-
+			<span style="color:#cfcfcf;"><%= yyyy %></span>
+			
 				<!-- 	Day of weeks	 -->
 			<div id="datePicker" class="date">
-			    <div class="col-xs-2 week_f"><%=EE[0] %>
-		    		<br/><span id="today" class="today date_f date_sh" ><%=af[0] %></span>
+			    <div class="col-xs-1 week_f">
+			    	<div class="dow_f"><%=EE[0] %></div>
+			    	<br />
+		    		<div id="today" class="today date_f date_sh" >
+		    			<%=af[0] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[1] %>
-		    		<br/><span id="manana" class="manana date_f date_sh" ><%=af[1] %></span>
+		    	<div class="col-xs-1 week_f">
+		    		<div class="dow_f"><%=EE[1] %></div>
+		    		<br />
+		    		<div id="manana" class="manana date_f date_sh" >
+		    			<%=af[1] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[2] %>
-		    		<br/><span id="third" class="third date_f date_sh" ><%=af[2] %></span>
+		    	<div class="col-xs-1 week_f">
+		    		<div class="dow_f"><%=EE[2] %></div>
+		    		<br />
+		    		<div id="third" class="third date_f date_sh" >
+		    			<%=af[2] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[3] %>
-		    		<br/><span id="fourth" class="fourth date_f date_sh" ><%=af[3] %></span>
+		    	<div class="col-xs-1 week_f">
+		    		<div class="dow_f"><%=EE[3] %></div>
+		    		<br />
+		    		<div id="fourth" class="fourth date_f date_sh" >
+		    			<%=af[3] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[4] %>
-		    		<br/><span id="fifth" class="fifth date_f date_sh" ><%=af[4] %></span>
+		    	<div class="col-xs-1 week_f">
+		    		<div class="dow_f"><%=EE[4] %></div>
+		    		<br />
+		    		<div id="fifth" class="fifth date_f date_sh" >
+		    			<%=af[4] %>
+		    		</div>
 		    	</div>
-		    	<div class="col-xs-1 week_f"><%=EE[5] %>
-		    		<br/><span id="sixth" class="sixth date_f date_sh" ><%=af[5] %></span>
+		    	<div class="col-xs-1 week_f">
+		    		<div class="dow_f"><%=EE[5] %></div>
+		    		<div id="sixth" class="sixth date_f date_sh" >
+		    			<%=af[5] %>
+		    		</div>
 		    	</div>
+		    	<div class="col-xs-1 week_f"></div>
 		    </div>	
-		    	<br/>	
+		    	<br/><br/>	
 			    	<script type="text/javascript">
 				    	$('#manana').click(function() {
 							$('#footer').text('You have chosen <%=af[1] %> day. Please select your preferred time.');
@@ -333,15 +369,15 @@ log("filename : "+(String)request.getAttribute("filename"));
 						});
 		    	</script>	    	
 				
-				<%
+	<%
 		if(email == null ){
 			
 		} else {
-		%>
+	%>
 		<div id="allSchdule" style="">
 		<div class="table_1" style="display:none;">				
 			<!-- Calendar for Table No.1 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%;">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -350,7 +386,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -359,7 +395,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -368,7 +404,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -377,7 +413,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -386,7 +422,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t1_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -399,7 +435,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 		
 		<!-- Calendar for Table No.2 -->
 		<div class="table_2" style="display:none;">
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -408,7 +444,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -417,7 +453,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -426,7 +462,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -435,7 +471,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -444,7 +480,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t2_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -457,7 +493,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 		
 		<div class="table_3" style="display:none;">
 			<!-- Calendar for Table No.3 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -466,7 +502,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -475,7 +511,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -484,7 +520,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -493,7 +529,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal"
@@ -502,7 +538,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t3_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -515,7 +551,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 		
 		<div class="table_4" style="display:none;">
 			<!-- Calendar for Table No.4 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -524,7 +560,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -533,7 +569,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -542,7 +578,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -551,7 +587,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -560,7 +596,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t4_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -573,7 +609,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 		
 		<div class="table_5" style="display:none;">
 			<!-- Calendar for Table No.5 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -582,7 +618,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -591,7 +627,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -600,7 +636,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -609,7 +645,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -618,7 +654,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t5_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -649,7 +685,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t6_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -658,7 +694,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t6_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -667,7 +703,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t6_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -676,7 +712,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t6_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -689,7 +725,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 			
 		<div class="table_7" style="display:none;">
 			<!-- Calendar for Table No.7 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -698,7 +734,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -707,7 +743,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -716,7 +752,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -725,7 +761,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -734,7 +770,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t7_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -747,7 +783,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 
 		<div class="table_8" style="display:none;">
 						<!-- Calendar for Table No.7 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -756,7 +792,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -765,7 +801,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -774,7 +810,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -783,7 +819,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -792,7 +828,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t8_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -805,7 +841,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 		
 		<div class="table_9" style="display:none;">
 			<!-- Calendar for Table No.9 -->
-			<div align="left"  class="tp timepicker0"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker0"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_today_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -814,7 +850,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>
-			<div align="left"  class="tp timepicker1"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker1"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_manana_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -823,7 +859,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>					  
-			<div align="left"  class="tp timepicker2"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker2"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_third_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -832,7 +868,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker3"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker3"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_fourth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -841,7 +877,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>				
-			<div align="left"  class="tp timepicker4"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker4"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_fifth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -850,7 +886,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</span>			
 				</c:forEach>			
 			</div>	
-			<div align="left"  class="tp timepicker5"  style="padding-left: 13%">
+			<div align="left"  class="tp timepicker5"  style="padding-left: 7%">
 	 			<c:forEach var="j" begin="0" items="${t9_sixth_calendar }" end="15" varStatus="st">
 					<span class="" style="text-align: center;">	
 						<input type="button" class="time time_nomal time-sh"
@@ -861,12 +897,12 @@ log("filename : "+(String)request.getAttribute("filename"));
 			</div>
 		</div>
 		</div>
-			<br /><br />
-			<div class="row" style="position:relative; align-self: center; text-align: center;padding:0 2% 0 2%;">
+		<br />
+			<div class="row re-label">
 				<div class="col-xs-12">			
-					<label class="reserve_label col-xs-4" style="background-color:#F6F5F4;border:none;text-align:right; font-size: 0.2vw;"></label>
-					<label class="re_time col-xs-4" style="background-color:#F6F5F4;border:none;font-size: 0.2vw;"></label>
-					<label class="re_day col-xs-4" style="background-color:#F6F5F4;border:none;text-align:left; font-size: 0.2vw;"></label>
+					<label class="reserve_label col-xs-4"></label>
+					<label class="re_time col-xs-4"></label>
+					<label class="re_day col-xs-4"></label>
 				</div>
 				<div class="col-xs-12">
 					<div class="col-xs-2"></div>
@@ -927,41 +963,36 @@ log("filename : "+(String)request.getAttribute("filename"));
 					</c:forEach>
 				</div>
 			</div>
-			
-			<!--  Reservation Information -->
-		
-			<div style="position:absolute; top:20vw; left:78vw; 
-				 font-family: 'Bungee Hairline', cursive;font-size: 0.3vw; font-weight:bolder;">
-				 
-				<label style="border:none;">${email}</label>
-				<input type="hidden" id="email" name="email" value="${email}"/>
-				<br/>
-				<label class="t_num" style="border:none;"></label>
-				<input type="hidden" name="t_index" class="t_num" value=""/>
-				       <br/>
-				<label style=" border:none;"><%=dow %> <%=year %></label>
-				<input type="hidden" name="reserved_wmy" 
-					   value="<%=dow %> <%=year %>" />
-				       <br/>
-				<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
-				<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
-				       <br/>
-				<label class="reserve_time" style="color: gray"></label>
-				<input type="hidden" name="reserved_time" class="reserve_time" value="" />
-				       <br/>       
-				       
-				<c:forEach var="j" begin="0" varStatus="st" end="5">
-						<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
-						<input type="hidden" name="menuname${st.index}" 
-							   class="menuname${st.index}" value=" " >
-						<br/><br/>
-				</c:forEach>
+										<!--  Reservation Information -->
 
-				  
-				<!-- total menu -->
-					<input type="hidden" name="menuname" class="menuname" value="">
-					
-			</div>
+				<div class="reserv-info">
+					 
+					<input type="hidden" id="email" name="email" value="${email}"/>
+					<label class="t_num" style="border:none;"></label>
+					<input type="hidden" name="t_index" class="t_num" value=""/>
+					       <br/>
+					<label style=" border:none;"><%=dow %> <%=year %></label>
+					<input type="hidden" name="reserved_wmy" 
+						   value="<%=dow %> <%=year %>" />
+					<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
+					<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
+					       <br/>
+					<label class="reserve_time" style="color: gray"></label>
+					<input type="hidden" name="reserved_time" class="reserve_time" value="" />
+					       <br/>       
+					<label class="withdraw"></label>
+					<c:forEach var="j" begin="0" varStatus="st" end="5">
+							<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
+							<input type="hidden" name="menuname${st.index}" 
+								   class="menuname${st.index}" value="" >
+							<br/>
+					</c:forEach>
+	
+					  
+					<!-- total menu -->
+						<input type="hidden" name="menuname" class="menuname" value="">
+						
+				</div>
 			
 				<!-- Hidden information for submit -->
 				<input type="hidden" name="distance" id="dist" class="dist" value="" style="color:black;">
@@ -1034,9 +1065,7 @@ log("filename : "+(String)request.getAttribute("filename"));
 	</script>
 	
 			<!-- 	Descript sentence	-->
-		<div class="footer raw description" 
-		     style="max-width:100%; width:100%; position:absolute; margin:1% 0 15% 2%; align-self:center;
-					font-family: 'Bungee Hairline', cursive; ">
+		<div class="footer raw description">
 				<label id="footer" class="typingFooter ">Welcome to my Store!! ${firstName} ${lastName} Would you like to select menu?</label>
 
 		</div>	 
