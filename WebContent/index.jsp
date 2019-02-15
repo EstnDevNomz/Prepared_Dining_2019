@@ -27,11 +27,10 @@
 	<!--  Modal popup window 	-->	
 	<%@ include file="menu/menuContent.jspf" %>
 	<%@ include file="payment/paymentMainForm.jspf" %>
-
+	<%@ include file="payment/TOS.jspf" %>
 <!DOCTYPE html >
 <html>
 <head>
-
 	<meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 	<meta name="robots" content="noindex, nofollow">
 	<meta name="googlebot" content="noindex, nofollow">
@@ -69,7 +68,9 @@
 %>
 		<script type="text/javascript">
 			var popUrl = "member/loginForm.jsp";
-			var popOption = "top=150, left=650, width=440, height=360, resizable=no, menubar=no, location=no, directoryies=no, resizable=no, toolbar=no, scrollbars=no, status=no";
+			var popOption = "top=150, left=650, width=440, height=360, "+
+							+"resizable=no, menubar=no, location=no, directoryies=no, "+
+							+"resizable=no, toolbar=no, scrollbars=no, status=no";
 			window.open(popUrl, "", popOption);
 		</script>
 <%
@@ -82,8 +83,18 @@
 	    <div class="zoomContainer" style="height: 85%;">
 			<div class="container-fluid" style="height: 85%;">
 				<div class="wrap">
+				
 					<div class="slider">
+					
 						<section>
+							<video id="video" poster="img/post_001.png" 
+									class="video-js"
+									width="350" height="260" 
+									controls="controls" 
+									autoplay>
+								<source class="video" src="${filename }" type="video/mp4" />
+							</video>
+							<br/>
 							<!-- 	Descript sentence	-->
 							<div class="raw description" 
 							     style="position:absolute; left:40vw; height: 13vw;">
@@ -91,10 +102,41 @@
 								<span class="col-xs-3">
 									<%@ include file="header/printClock.jsp" %>
 								</span>
-							</div>	
-						</section>	
-						<section>	
+							</div>
+							
+							<!-- Users account -->
+				<%
+					if (session.getAttribute("ValidMem") == null) {
+				%>			
+							<div class="login">
+								<a id="login" href="javascript:loginPopupOpen();" > 
+									<span class="signin blur">Sign in with your E-mail</span>
+								</a><br />
+								<a id="join" href="javascript:joinPopupOpen();"	class="blur" > 
+									<span class="join">Create account</span>
+								</a>
+							</div><br />
+					
+						
+				<%		
+					} else {
+				%>
+							<div class="login">
+								<a href="member/logOut.jsp" id="logout"	class="blur"> 
+									<span class="out">Sign out</span>			
+								</a>&nbsp;&nbsp;						
+								<br/>
 								
+								<a href="javascript:modifyPopupOpen();" id="modify"	class="blur"> 
+									<span class="modifyinfo">Modify information</span>
+								</a>
+				
+							</div>
+				<%
+					}
+				%>		
+						</section>	
+						<section>									
 <%
 	if(email == null ){
 		
@@ -104,7 +146,7 @@
 										
 										<!-- middle title -->
 									<div class="col-xs-12 label label-default"
-										style="text-align: center;
+										style="display:block; text-align: center;
 											padding: 1% 0% 0.3% 0%;border-bottom: 5px solid white">
 										<label class="col-xs-2">Index</label>
 										<label class="col-xs-2">Date</label>
@@ -136,92 +178,48 @@
 								<!-- get bseq index when click cancel button -->
 								<input type="hidden" class="bseq" value=""/>
 							</div>	
-
 <%		
 	}else{
 		
 	}
 	log("filename : "+(String)request.getAttribute("filename"));
-%>						</section>
-						<section>
-							<video id="video" poster="img/post_001.png" 
-									class="video-js"
-									width="350" height="260" 
-									controls="controls" 
-									autoplay>
-								<source class="video" src="${filename }" type="video/mp4" />
-							</video>
-							<br/>
-																			
+%>
 						  <!--				location information			 -->
 							
 						  <div id="locationinformation" class="location"> 
 							<!-- get Distance method -->
-							<script type="text/javascript" src="script/calcDistance.js"></script>
-						     <label style="width:20vw;">My location:</label> <br/> 
-						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#B6AEA5; text-align: left;">
-						      	<span id="startLat"></span>°, <span id="startLon"></span>°
-						      </a>
-						 	<br/><br/>
-		
-						      Store location:<br/> 
-						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #B6AEA5">
-						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
-						      </a>
-						    <br/><br/>
-						   	
-						     Distance:
-						     <br/> 
-						     <label class="distance" 
-						     		style="position:absolute; 
-								     		background-color:#F6F5F4;
-								     		color:#FACCA8;
-								     		font-size:5vw; 
-								     		border: none; 
-								     		font-weight:bolder;
-								     		right:9vw;" >
-						     		
-						     		distance
-						     		
-						     </label>
+							<script type="text/javascript" src="script/calcDistance.js"></script>						   	
+						     <h1><label class="distance"></label></h1>
+						     <div>
+
+							      <h4><span class="subDist">My location:</span><br/>
+								      <a id="home" data-toggle="modal"  class="subTitleDist"
+								      	 data-target="#myModal">
+								      	<span id="startLat"></span>°, <span id="startLon"></span>°
+								      </a>
+							      </h4>
+						      </div>
+						     <div>
+							      <h4><span class="subDist">Store location:</span><br/>
+								      <a id="cl"  class="subTitleDist"
+								      	 href="javascript:mapPopupOpen()">
+								      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
+								      </a>
+							      </h4>
+						     </div>
+
 						      <input type="hidden" id="distance" name="distance"
 								      readonly="readonly">
-							<input type="hidden" id="a" value=""><input type="hidden" id="b" value="">
+							<input type="hidden" id="a" value="">
+							<input type="hidden" id="b" value="">
 						  </div> 
+						</section>
+						<section>																			
+
 						</section>
 					</div>
 				</div>
-			<!-- Users account -->
-	<%
-		if (session.getAttribute("ValidMem") == null) {
-	%>			
-				<div class="login">
-					<a id="login" href="javascript:loginPopupOpen();" > 
-						<span class="signin blur">Sign in with your E-mail</span>
-					</a><br />
-					<a id="join" href="javascript:joinPopupOpen();"	class="blur" > 
-						<span class="join">Create account</span>
-					</a>
-				</div><br />
-		
 			
-	<%		
-		} else {
-	%>
-				<div class="login">
-					<a href="member/logOut.jsp" id="logout"	class="blur"> 
-						<span class="out">Sign out</span>			
-					</a>&nbsp;&nbsp;						
-					<br/>
-					
-					<a href="javascript:modifyPopupOpen();" id="modify"	class="blur"> 
-						<span class="modifyinfo">Modify information</span>
-					</a>
-	
-				</div>
-	<%
-		}
-	%>				
 			<script type="text/javascript">
 				// be pause video if click backyard 
 				$('.container-fluid').click(function() {
@@ -242,13 +240,13 @@
 								<c:forEach var="j" items="${list}" begin="0" varStatus="status"	end="23">
 									<span  style="padding: 0.3%;line-height: 1.3em;">
 									<input id="" type="image" 
-										src="img/${j.menuImg}" 
-										class="listImg" alt=""	
-										style="border-radius: 8%; 
-										width: 15%;" 
-										data-toggle="modal" 
-										data-target="#myModal"
-										onclick="modal_view('${j.menuImg}','${j.menuName}','${j.content}','${j.price }');">
+											src="img/${j.menuImg}" 
+											class="listImg" alt=""	
+											style="border-radius: 8%; 
+											width: 15%;" 
+											data-toggle="modal" 
+											data-target="#myModal"
+											onclick="modal_view('${j.menuImg}','${j.menuName}','${j.content}','${j.price }');">
 									</span>
 								</c:forEach>
 						</div>
@@ -963,36 +961,36 @@
 					</c:forEach>
 				</div>
 			</div>
-										<!--  Reservation Information -->
+			
+			<!--  Reservation Information -->
+			<div class="reserv-info">
+				 
+				<input type="hidden" id="email" name="email" value="${email}"/>
+				<label class="t_num" style="border:none;"></label>
+				<input type="hidden" name="t_index" class="t_num" value=""/>
+				       <br/>
+				<label style=" border:none;"><%=dow %> <%=year %></label>
+				<input type="hidden" name="reserved_wmy" 
+					   value="<%=dow %> <%=year %>" />
+				<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
+				<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
+				       <br/>
+				<label class="reserve_time" style="color: gray"></label>
+				<input type="hidden" name="reserved_time" class="reserve_time" value="" />
+				       <br/>       
+				<label class="withdraw"></label>
+				<c:forEach var="j" begin="0" varStatus="st" end="5">
+						<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
+						<input type="hidden" name="menuname${st.index}" 
+							   class="menuname${st.index}" value="" >
+						<br/>
+				</c:forEach>
 
-				<div class="reserv-info">
-					 
-					<input type="hidden" id="email" name="email" value="${email}"/>
-					<label class="t_num" style="border:none;"></label>
-					<input type="hidden" name="t_index" class="t_num" value=""/>
-					       <br/>
-					<label style=" border:none;"><%=dow %> <%=year %></label>
-					<input type="hidden" name="reserved_wmy" 
-						   value="<%=dow %> <%=year %>" />
-					<label class="reserve_day" style="border:none; font-size: 30%;"></label>      
-					<input type="hidden" name="reserved_day" class="reserve_day" value=""/>
-					       <br/>
-					<label class="reserve_time" style="color: gray"></label>
-					<input type="hidden" name="reserved_time" class="reserve_time" value="" />
-					       <br/>       
-					<label class="withdraw"></label>
-					<c:forEach var="j" begin="0" varStatus="st" end="5">
-							<label class="menuname${st.index}" style="border:none; color: blue;" ></label>
-							<input type="hidden" name="menuname${st.index}" 
-								   class="menuname${st.index}" value="" >
-							<br/>
-					</c:forEach>
-	
-					  
-					<!-- total menu -->
-						<input type="hidden" name="menuname" class="menuname" value="">
-						
-				</div>
+				  
+				<!-- total menu -->
+					<input type="hidden" name="menuname" class="menuname" value="">
+					
+			</div>
 			
 				<!-- Hidden information for submit -->
 				<input type="hidden" name="distance" id="dist" class="dist" value="" style="color:black;">

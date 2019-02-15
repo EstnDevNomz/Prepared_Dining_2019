@@ -8,11 +8,10 @@ $('.upload').click(function() {
 
 
 function change() {
-	var video = document.getElementById("video");
+	var video = document.getElementById("admin-video");
 	var filename = $('.filename').val();
 	filename = 'videos' +filename.substring(filename.lastIndexOf('\\'), filename.length);	//cut file name
 	video.src = filename;
-	alert(filename);
 }
 
 $('#play').click(function(){

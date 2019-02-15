@@ -8,7 +8,8 @@ public class MDto {
 	private String content;
 	private String price;
 	
-	public MDto(int seq, String menuImg, String menuName, String content, String price) {
+	public MDto(int seq, String menuImg, 
+			String menuName, String content, String price) {
 		// TODO Auto-generated constructor stub
 		this.menuImg = menuImg;
 		this.menuName = menuName;

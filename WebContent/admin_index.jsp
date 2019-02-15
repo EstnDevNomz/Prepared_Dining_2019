@@ -68,7 +68,7 @@
 
 </head>
 
-<body onload="init();$('#inputpay').hide();$('#pay').hide();"style="background-color: #000;">
+<body onload="init();$('#inputpay').hide();$('#pay').hide();"style="background-color: #000;overflow:hidden;">
 		
 <%	//	고객 접속확인
 	if(session.getAttribute("ValidMem") == null){
@@ -83,23 +83,91 @@
 
 	<div class="zoomViewport demo" style=" height: 85%;">
 	    <div class="zoomContainer" style="height: 85%;" data-duration="100">
-			<div class="container-fluid" style="height: 85%;">
+			<div class="container-fluid" style="height: 85%; width: 110%;">
 			
 				<div class="wrap">
 					<div class="slider">
 						<!-- 	Page 1	 -->
-						<section>
+						<section>				
+
 							<!-- 	Descript sentence	-->
-							<div class="footer raw typing description" 
+							<div class="footer raw description" 
 							     style="max-width:100%; width:100%; 
 										font-family: 'Bungee Hairline', cursive;">
-								<span class="col-xs-9 " >
+								<span class="col-xs-8 " >
 								</span>
-								<span class="col-xs-3">
+								<span class="col-xs-4">
 									<%@ include file="header/printClock.jsp" %>
 								</span>
-							</div>	
+							</div>
+						
+						<!-- 				Users account 				-->
+						
+							<div class="admin-login">
+								<a href="member/logOut.jsp" id="logout"	class="admin_blur" style="color: #659EA8;"> 
+									<span class="out">Sign out</span>			
+								</a>&nbsp;&nbsp;						
+								<br/>
+								
+			<!-- 					<a href="javascript:modifyPopupOpen();" id="modify"	class="admin_blur" style="color: #659EA8"> 
+									<span class="modifyinfo">Modify information</span>
+								</a> 
+			-->
+							</div>
 							
+							<!-- Video Section -->
+							<video id="admin-video" poster="" 
+									class="video-js"
+									width="350" height="260" 
+									controls="controls" autoplay
+									loop="loop">
+								<source class="video" 
+										src="videos/SlowInfantileCusimanse.mp4" 
+										type="video/mp4" />
+							</video>
+							<br/>
+							<div class="vidOps" style="">
+								<button type="button" id="stop" 
+										class="glyphicon glyphicon-stop" >
+								</button>
+								<button type="button" id="play" 
+										class="glyphicon glyphicon-pause" >
+								</button>
+								<button type="button" onclick="change();insertVideo()"
+										class="upload glyphicon glyphicon-eject" >
+								</button>
+								<br/><br/>
+								<input type="file" class="filename" src="" size="20px"/>
+							</div>
+							
+						<!--				location information			 -->
+							
+						  	<div id="locationinformation" class="location"> 
+							<!-- get Distance method -->
+							<script type="text/javascript" src="script/calcDistance.js"></script>
+						     <label style="width:20vw;">My location:</label> <br/> 
+						      <a id="home" 
+							 	 data-toggle="modal" data-target="#myModal"
+								 style="color:#5E959F;">
+						      	<span id="startLat"></span>°, <span id="startLon"></span>°
+						      </a>
+						 	<br/><br/>
+		
+						      Store location:<br/> 
+						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #5E959F">
+						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
+						      </a>
+						    <br/><br/>
+						   	
+						     Distance:<br/> 
+						     <label class="distance" style="background-color: #000;">distance</label>
+						      <input type="hidden" 
+								     id="distance" 
+								     name="distance"
+								     readonly="readonly">
+							<input type="hidden" id="a" value="">
+							<input type="hidden" id="b" value="">
+						  </div>  
 						</section>
 						<!-- 	Page 2	 -->
 						<section class="order-list">
@@ -124,7 +192,7 @@
 									</button>
 								</div>
 							</div>
-							<table class="search_table row form-group">
+							<table class="search_table row form-group" style=" width: 95%;">
 								<thead style="padding: 5px;">
 									<tr class="table">
 										<th class="col-xs-1" style="text-align: center;
@@ -195,58 +263,8 @@
 						<!-- 	Page 3	 -->
 						<section>
 							<article>
-								<!-- Video Section -->
-								<video id="video" poster="" 
-										class="video-js"
-										width="350" height="260" 
-										controls="controls" autoplay
-										loop="loop">
-									<source class="video" src="videos/SlowInfantileCusimanse.mp4" type="video/mp4" />
-								</video>
-								<br/>
-								<div class="vidOps">
-									<button type="button" id="stop" 
-											class="glyphicon glyphicon-stop" >
-									</button>
-									<button type="button" id="play" 
-											class="glyphicon glyphicon-pause" >
-									</button>
-									<button type="button" onclick="change();insertVideo()"
-											class="upload glyphicon glyphicon-eject" >
-									</button>
-									<br/><br/>
-									<input type="file" class="filename" src="" size="20px"/>
-								</div>
 								
-							</article>
-
-						<!--				location information			 -->
-							
-						  	<div id="locationinformation" class="location" style="width:20vw; text-align: right;"> 
-							<!-- get Distance method -->
-							<script type="text/javascript" src="script/calcDistance.js"></script>
-						     <label style="width:20vw;">My location:</label> <br/> 
-						      <a id="home" data-toggle="modal" data-target="#myModal"style="color:#5E959F; text-align: left;">
-						      	<span id="startLat"></span>°, <span id="startLon"></span>°
-						      </a>
-						 	<br/><br/>
-		
-						      Store location:<br/> 
-						      <a id="cl" href="javascript:mapPopupOpen()" style="color: #5E959F">
-						      	<span id="currentLat"></span>°, <span id="currentLon"></span>°
-						      </a>
-						    <br/><br/>
-						   	
-						     Distance:<br/> 
-						     <label class="distance" >distance</label>
-						      <input type="hidden" 
-								     id="distance" 
-								     name="distance"
-								     readonly="readonly">
-							<input type="hidden" id="a" value="">
-							<input type="hidden" id="b" value="">
-						  </div>  
-								
+							</article>								
 						</section>
 					</div>
 				</div>	
@@ -264,21 +282,6 @@
 						<%@ include file="header/printClock.jsp" %>
 					</span>
 				</div>	
-						
-			<!-- 				Users account 				-->
-			
-				<div class="login">
-					<a href="member/logOut.jsp" id="logout"	class="admin_blur" style="color: #659EA8"> 
-						<span class="out">Sign out</span>			
-					</a>&nbsp;&nbsp;						
-					<br/>
-					
-					<a href="javascript:modifyPopupOpen();" id="modify"	class="admin_blur" style="color: #659EA8"> 
-						<span class="modifyinfo">Modify information</span>
-					</a>
-	
-				</div>
-
 			
 			<!-- 				menu list 				-->
 				<div id="admin_menu" class="level0 frame">

@@ -56,7 +56,9 @@ public class BookUpService implements Service {
 			System.out.println("withdraw : " + withdraw);
 		
 		Dao dao = Dao.getInstance();	//�������� �ʰ� ���⼭ dao�� ����
-		dao.bookup(t_index, email, menuname, withdraw, distance, reserved_wmy, reserved_day, reserved_time, creditCardFirm, cdn,  customer_name, inval, cvc, phone, installment, p_withdraw);
+		dao.bookup(t_index, email, menuname, withdraw, distance, 
+								reserved_wmy, reserved_day, reserved_time, creditCardFirm, 
+								cdn,  customer_name, inval, cvc, phone, installment, p_withdraw);
 	}
 
 }

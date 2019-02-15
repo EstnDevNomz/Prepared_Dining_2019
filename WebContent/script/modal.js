@@ -14,7 +14,12 @@
 				$("#payment").modal();
 			})
 		});
-
+		$(window).load(function(){ 
+			$('.tos').on('click', function(){
+				$(this).unbind('click.zoomNotClickable');
+				$("#tos").modal();
+			})
+		});
 	/*carried in main.jsp */
 	function modal_view(menuImg, menuName, content, price) {
 		/* function for enter on the HTML*/

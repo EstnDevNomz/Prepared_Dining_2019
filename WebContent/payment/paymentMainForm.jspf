@@ -7,8 +7,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../script/init.js"></script>	
+	<link rel="stylesheet" href="../style/style_shape.css" type="text/css"	media="screen" />
+		<script type="text/javascript" src="../script/init.js"></script>	
 <title></title>
 </head>
 <body >
@@ -19,9 +19,9 @@
 %>
 	<!-- 	Credit Card Form	 -->
 	<form id="creditcard" name="doPayment" method="post" action="payment.do" >
-		<div id="payment" class="modal fade" aria-hidden="true" >
-			<div class="modal-dialog">
-				<div class="modal-content newmenu" >
+		<div id="payment" class="modal fade" aria-hidden="true">
+			<div class="modal-dialog pay-height" >
+				<div class="modal-content pay-height">
 				
 					<div class="modal-header">
 						<button 
@@ -34,21 +34,23 @@
 						Payment
 						</span>
 			  	    </div>
-					<div class="raw" style="height: 400px;">
+					<div class="raw payment">
 						<div id="cardpicker" class="col-sm-7">			
 							<div><br />
-								<a href="#">
-									<span class="tos col-xs-5" >
+								<a href="#" class="tos" data-toggle="modal" 
+										data-target="#tos">
+									<span class="tos col-xs-5">
 										Terms of service
 									</span>
 								</a>
-								<span class="tos col-xs-7">
+								<span class="col-xs-7">
 									<input id="TOS" name="TOS" type="checkbox">
 									I agree to the Term of service
 								</span>
 							</div><br /><hr/>
 							<div class="" style="padding-bottom:0.3%;" >
-								<c:forEach var="item" items="${fn:split('PAYCO|L.PAY|PAYPAL', '|') }" begin="0" end="5" varStatus="st">
+								<c:forEach var="item" items="${fn:split('PAYCO|L.PAY|PAYPAL', '|') }" 
+									       begin="0" end="5" varStatus="st">
 									<button class="a_card btn btn-light" id="a_card${st.index}"
 											type="button" 
 											style="font-family: ‘Noto Sans KR’ ;
@@ -81,7 +83,7 @@
 						</div>
 						<!-- 	input	 -->
 						<div id='inputpay' class="col-sm-7" style="top:3%;">			
-							<div class="" style="background-color:#c0c0c0; border-radius: 5px; font-size: 90%; padding:1% 2% 6% 1%; width: 60%; text-align: right;">
+							<div class="cc" style="background-color:#c0c0c0; border-radius: 5px; font-size: 90%; padding:1% 2% 6% 1%; width: 60%; text-align: right;">
 								<label class="cardName" style="font-family: ‘Noto Sans KR’;color:white" ></label><br/><br/><br/>
 								<input type="hidden" id="cardName" name="creditCardFirm" style="color: black;" value="">
 								<div id="recdn" style="font-family: ‘Noto Sans KR’;color:white;font-size: 110%;text-align: center;">0000 0000 0000 0000</div>
@@ -111,13 +113,14 @@
 										<option class="vt" value="6 months">6 months</option>
 									</select>
 								</div>
+								<br/><br/>
 						</div>
 						
 						<!-- 	Sidebar		 -->
-						<div class="sidebar col-sm-5" style="width:41.67%;height: 400px;padding-left: 0px;" >
+						<div class="sidebar col-sm-5" >
 							<div>
 								<p>
-									<label class="col-xs-6" style="margin-bottom:7px;">Book at</label>
+									<label class="col-xs-6" style="margin-top:15px; margin-bottom:7px;">Book at</label>
 									<label class="re_time col-xs-3" style="font-size:0.7vw; text-align: right;margin-bottom:7px;">time</label>
 									<label class="re_day col-xs-3" style="font-size:0.7vw; text-align: right;margin-bottom:7px;">day</label>
 								</p>

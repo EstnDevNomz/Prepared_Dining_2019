@@ -3,31 +3,25 @@ package com.jsp.pj1.dto;
 import java.sql.Timestamp;
 
 public class Dto {
-	// 고객 번호 
+	// 怨좉컼 踰덊샇 
 	private int customerIndex;
-	// 성 
+	// �꽦 
 	private String firstName;
-	// 이름
+	// �씠由�
 	private String lastName;
-    // 고객 이메일 
+    // 怨좉컼 �씠硫붿씪 
 	private String customerEmail;
-    // 고객 암호 
+    // 怨좉컼 �븫�샇 
 	private String customerPwd;
-    // 고객 전화번호 
+    // 怨좉컼 �쟾�솕踰덊샇 
 	private String customerPhone;
-    // 고객 주소 
+    // 怨좉컼 二쇱냼 
 	private String customerAddr;
-    // 등록 가입일자 
+    // �벑濡� 媛��엯�씪�옄 
 	private Timestamp regJointime;
-    // 고객 거리 정보 
+    // 怨좉컼 嫄곕━ �젙蹂� 
 	private String customerDistanceInfo;
-	
-	private String menuImg;
-	private String menuName;
-	private String content;
-	private int price;
-	
-	
+		
 	
 	public int getCustomerIndex() {
 		return customerIndex;
@@ -82,30 +76,6 @@ public class Dto {
 	}
 	public void setCustomerDistanceInfo(String customerDistanceInfo) {
 		this.customerDistanceInfo = customerDistanceInfo;
-	}
-	public String getMenuImg() {
-		return menuImg;
-	}
-	public void setMenuImg(String menuImg) {
-		this.menuImg = menuImg;
-	}
-	public String getMenuName() {
-		return menuName;
-	}
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package user;
+package com.jsp.pj1.ajax;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,7 +40,7 @@ public class AjaxDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			//Wild card :íŠ¹ì •í•œ ìš”ì†Œê°€ í¬í•¨ëœ ëª¨ë“  ìš”ì†Œê°€ ì¶œë ¥
+			//Wild card :?Š¹? •?•œ ?š”?†Œê°? ?¬?•¨?œ ëª¨ë“  ?š”?†Œê°? ì¶œë ¥
 			pstmt.setString(1, "%" + keyword + "%"); 
 			rs = pstmt.executeQuery();
 			System.out.println(rs);
@@ -74,13 +74,13 @@ public class AjaxDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, bseq); //Wild card : íŠ¹ì •í•œ ìš”ì†Œê°€ í¬í•¨ëœ ëª¨ë“  ìš”ì†Œê°€ ì¶œë ¥
+			pstmt.setString(1, bseq); //Wild card : ?Š¹? •?•œ ?š”?†Œê°? ?¬?•¨?œ ëª¨ë“  ?š”?†Œê°? ì¶œë ¥
 			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
 			System.out.println(rs);
 			
 			while (rs.next()) {
-				System.out.println("whileë¬¸ ì§„ì…");
+				System.out.println("whileë¬? ì§„ì…");
 				URDto dto = new URDto();
 				dto.setB_seq(rs.getTimestamp(1));
 				dto.setT_index(rs.getString(2));

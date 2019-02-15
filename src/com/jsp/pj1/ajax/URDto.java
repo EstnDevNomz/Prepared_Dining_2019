@@ -1,4 +1,4 @@
-package user;
+package com.jsp.pj1.ajax;
 
 import java.sql.Timestamp;
 
