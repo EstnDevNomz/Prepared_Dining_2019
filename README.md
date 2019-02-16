@@ -1,3 +1,3 @@
-# open_dining_2019
+# Prepared Dining 2019
 
 ![text](businessLogic.png)
