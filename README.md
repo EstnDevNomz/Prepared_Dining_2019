@@ -4,5 +4,5 @@
 ## ERD
 ![text](erd_dining.png)
 
-##Description
-![test]([Prepared Dining]이현석_프로젝트 명세서.pdf)
+## Description
+![text]([Prepared Dining]이현석_프로젝트 명세서.pdf)
