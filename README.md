@@ -5,4 +5,4 @@
 ![text](erd_dining.png)
 
 ##Description
-![test]()
+![test]([Prepared Dining]이현석_프로젝트 명세서.pdf)
