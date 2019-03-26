@@ -4,4 +4,4 @@
 ## ERD
 ![text](erd_dining.png)
 ## Description
-![text]([discription.jpg)
+![text](description.jpg)
